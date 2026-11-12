@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iglesia Fuente de Vida - Iglesia de la Familia | Aberdeen, MD</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Poppins & Great Vibes for script accents -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#154B98',         /* Deep Ocean Blue */
+                            blueDark: '#0E3368',     /* Darker shade for hover states */
+                            green: '#8CC63F',        /* Vibrant Leaf Green */
+                            greenHover: '#76A933',   /* Darker green for hover */
+                            lavender: '#C4C7E7',    /* Water stream light periwinkle/lavender */
+                            lavenderLight: '#F3F4FB',/* Subtle section background tint */
+                            navyDark: '#0B1B36',     /* Footer and dark backgrounds */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(14, 51, 104, 0.94) 0%, rgba(21, 75, 152, 0.88) 100%),
+                        url('assets/images/hero/hero_bg.jpg') center/cover no-repeat;
+        }
+        .gp-card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(21, 75, 152, 0.08), 0 4px 12px -2px rgba(21, 75, 152, 0.04);
+        }
+        .pulse-live {
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(140, 198, 63, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(140, 198, 63, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(140, 198, 63, 0); }
+        }
+        .water-wave-bg {
+            background-image: radial-gradient(#C4C7E7 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-brand-lavenderLight text-slate-700 font-sans antialiased selection:bg-brand-green selection:text-white">
+
+    <!-- Top Contact Info Bar -->
+    <header class="bg-brand-blueDark text-slate-200 text-xs sm:text-sm py-2.5 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-5">
+                <a href="https://maps.google.com/?q=690+S+Philadelphia+Blvd+#500,+Aberdeen,+MD+21001" target="_blank" class="hover:text-brand-green transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot text-brand-green"></i>
+                    <span>690 S Philadelphia Blvd #500, Aberdeen, MD 21001</span>
+                </a>
+                <a href="tel:4438457097" class="hover:text-brand-green transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-brand-green"></i>
+                    <span>(443) 845-7097</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-brand-lavender text-xs hidden md:inline"><i class="fa-solid fa-heart mr-1 text-brand-green"></i> Iglesia de la Familia en Harford County</span>
+                <div class="flex items-center gap-3 text-sm">
+                    <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="hover:text-brand-green transition" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="hover:text-brand-green transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/ifdvida" target="_blank" class="hover:text-brand-green transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                
+                <!-- Logo Agrandado -->
+                <a href="#" class="flex items-center group py-2">
+                    <img src="assets/images/logo/logo_rgb.png" alt="Fuente de Vida - Iglesia de la familia" class="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
+                </a>
+
+                <!-- Desktop Menu Nav Links -->
+                <div class="hidden lg:flex items-center gap-8 font-medium text-slate-700 text-sm">
+                    <a href="#inicio" class="hover:text-brand-blue transition py-2 border-b-2 border-brand-green font-semibold text-brand-blue">Inicio</a>
+                    <a href="#nosotros" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
+                    <a href="#creencias" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Creencias</a>
+                    <a href="#horarios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Horarios</a>
+                    <a href="#ministerios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Ministerios</a>
+                    <a href="#sermones" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Predicas</a>
+                    <a href="#contacto" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#contacto" class="bg-brand-green hover:bg-brand-greenHover text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition shadow-sm hover:shadow flex items-center gap-2">
+                        <i class="fa-solid fa-users text-xs"></i> Planifica tu Visita
+                    </a>
+                    <a href="#donaciones" class="bg-brand-blue hover:bg-brand-blueDark text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition shadow-sm hover:shadow flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-xs"></i> Donar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-brand-blue font-semibold border-b border-slate-100">Inicio</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Nosotros</a>
+            <a href="#creencias" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Creencias</a>
+            <a href="#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Horarios y Servicios</a>
+            <a href="#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
+            <a href="#sermones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Transmisiones y Prédicas</a>
+            <a href="#donaciones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ofrendas y Diezmos</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contacto y Ubicación</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="#contacto" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green text-white py-2.5 rounded-lg font-semibold text-sm">Planifica tu Visita</a>
+                <a href="#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue text-white py-2.5 rounded-lg font-semibold text-sm">Dar Diezmo u Ofrenda</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero-section hero-gradient relative text-white py-24 lg:py-36 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide shadow-lg">
+            <i class="fa-solid fa-house-chimney-window text-brand-green"></i> Bienvenidos a tu casa de fe en Aberdeen, MD
+        </div>
+        
+        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3 leading-tight">
+            Fuente de <span class="text-brand-green">Vida</span>
+        </h1>
+        
+        <p class="font-heading text-2xl sm:text-3xl text-slate-100 font-bold mb-6">
+            Iglesia de la Familia
+        </p>
+
+        <p class="text-slate-200 text-base sm:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+            Un lugar donde la gracia de Dios fluye como un río de vida. Declaramos salvación, renovación y esperanza para todos los hogares de nuestra comunidad.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#horarios" class="w-full sm:w-auto bg-brand-green hover:bg-brand-greenHover text-white px-8 py-4 rounded-xl font-bold text-base transition duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                <i class="fa-regular fa-calendar-check"></i> Horarios de Servicio
+            </a>
+            <a href="#sermones" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-base transition duration-200 flex items-center justify-center gap-3">
+                <i class="fa-solid fa-circle-play text-brand-green"></i> Prédicas Recientes
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Location & Services Floating Card -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-12 sm:-mt-16">
+        <div class="bg-white rounded-2xl gp-card-shadow p-6 sm:p-8 border border-brand-lavender/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                
+                <div class="flex items-start gap-4 pt-4 md:pt-0">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-xl shrink-0 border border-brand-blue/10">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-bold text-slate-900 text-base mb-1">Nuestra Dirección</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">690 S Philadelphia Blvd #500,<br>Aberdeen, MD 21001</p>
+                        <a href="https://maps.google.com/?q=690+S+Philadelphia+Blvd+#500,+Aberdeen,+MD+21001" target="_blank" class="inline-block mt-2 text-xs font-semibold text-brand-blue hover:text-brand-green transition">Cómo llegar &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pl-6">
+                    <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center text-xl shrink-0 border border-brand-green/20">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-bold text-slate-900 text-base mb-1">Servicio Dominical</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">Cada Domingo: <strong>11:00 AM</strong><br>Estudio Bíblico: Miércoles 7:00 PM</p>
+                        <a href="#horarios" class="inline-block mt-2 text-xs font-semibold text-brand-blue hover:text-brand-green transition">Ver todos los horarios &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pl-6">
+                    <div class="w-12 h-12 bg-slate-50 text-brand-blueDark rounded-xl flex items-center justify-center text-xl shrink-0 border border-slate-200">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-bold text-slate-900 text-base mb-1">Atención Pastoral</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">¿Necesitas oración o consejería?<br>Llámanos: <strong>(443) 845-7097</strong></p>
+                        <a href="#contacto" class="inline-block mt-2 text-xs font-semibold text-brand-blue hover:text-brand-green transition">Enviar petición &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="nosotros" class="py-20 px-4 sm:px-6 bg-white border-b border-brand-lavender/40 mt-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <span class="w-8 h-1 bg-brand-green rounded-full"></span>
+                        <span class="text-brand-blue font-bold text-sm tracking-wider uppercase">Nuestra Casa de Fe</span>
+                    </div>
+                    
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark leading-tight">
+                        Una comunidad dedicada a edificar a la <span class="text-brand-green">familia</span> bajo la verdad de la Biblia
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        En la <strong>Iglesia Fuente de Vida</strong>, nuestra pasión es proclamar el mensaje restaurador de Jesucristo. Como <em>Iglesia de la Familia</em>, creemos que cada hogar en Aberdeen y Harford County merece experimentar el amor, la salvación y el propósito que solo Dios puede dar.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-brand-lavenderLight p-4 rounded-xl border border-brand-lavender/60 flex items-start gap-3 shadow-sm">
+                            <i class="fa-solid fa-check-circle text-brand-green text-lg mt-0.5"></i>
+                            <div>
+                                <h5 class="font-bold text-slate-800 text-sm">Creencias Bíblicas</h5>
+                                <p class="text-slate-500 text-xs">Fundamentados con solidez en la Palabra de Dios.</p>
+                            </div>
+                        </div>
+                        <div class="bg-brand-lavenderLight p-4 rounded-xl border border-brand-lavender/60 flex items-start gap-3 shadow-sm">
+                            <i class="fa-solid fa-check-circle text-brand-green text-lg mt-0.5"></i>
+                            <div>
+                                <h5 class="font-bold text-slate-800 text-sm">Fe Familiar</h5>
+                                <p class="text-slate-500 text-xs">Un ambiente cálido y seguro para niños y jóvenes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contacto" class="bg-brand-blue hover:bg-brand-blueDark text-white px-6 py-3 rounded-lg font-semibold text-sm transition shadow inline-flex items-center gap-2">
+                            <span>Conoce Más Sobre Nosotros</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="w-full h-80 sm:h-96 rounded-2xl overflow-hidden shadow-xl relative border-4 border-white">
+                        <img src="assets/images/nosotros/nosotros_bg.jpg" alt="Familia en Adoración" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navyDark/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <p class="text-xs uppercase tracking-widest text-brand-green font-bold">Unidos en Cristo</p>
+                            <h4 class="font-heading font-bold text-lg leading-snug">"Josué 24:15"</h4>
+                            <span class="text-xs opacity-80">Yo y mi casa serviremos al Señor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beliefs Section -->
+    <section id="creencias" class="py-20 px-4 sm:px-6 bg-brand-lavenderLight border-b border-brand-lavender/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Fundamentos y Sana Doctrina</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                    Nuestras Creencias
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Nos fundamentamos en la verdad inquebrantable de la Palabra de Dios y las verdades doctrinales esenciales que guían nuestra fe y comunidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Creencia 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-lavender/60 shadow-sm transition hover:-translate-y-1 duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-900 text-lg">La Salvación por Medio de Jesucristo</h4>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        La salvación es la liberación de la muerte espiritual y de la esclavitud del pecado. La única esperanza de redención de la humanidad es mediante la sangre de Jesucristo, derramada al morir en la cruz.
+                    </p>
+                    <span class="inline-block mt-4 text-xs font-semibold text-brand-blue">Marcos 15, Lucas 23, Juan 19, Lucas 24:47, Juan 3:16-17</span>
+                </div>
+
+                <!-- Creencia 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-lavender/60 shadow-sm transition hover:-translate-y-1 duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-hand-holding-medical"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-900 text-lg">La Sanidad Divina</h4>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        La sanidad divina es una parte integral del evangelio. La liberación de la enfermedad fue provista en la expiación y constituye el privilegio de todos los creyentes.
+                    </p>
+                    <span class="inline-block mt-4 text-xs font-semibold text-brand-blue">Isaías 53:4-5; Santiago 5:14-16</span>
+                </div>
+
+                <!-- Creencia 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-lavender/60 shadow-sm transition hover:-translate-y-1 duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-900 text-lg">El Bautismo en el Espíritu Santo</h4>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Todos los creyentes pueden recibir el bautismo en el Espíritu Santo, y por tanto, deben esperar y buscar ardientemente la promesa del Padre, según el mandato de nuestro Señor Jesucristo.
+                    </p>
+                    <span class="inline-block mt-4 text-xs font-semibold text-brand-blue">Hechos 1:4,8; Hechos 2:4</span>
+                </div>
+
+                <!-- Creencia 4 -->
+                <div class="bg-white rounded-2xl p-8 border border-brand-lavender/60 shadow-sm transition hover:-translate-y-1 duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-slate-900 text-lg">La Segunda Venida de Cristo</h4>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Los cristianos que han fallecido se levantarán para reunirse con el Señor en el aire, y los vivos serán arrebatados juntamente con ellos. Esta verdad es nuestra «esperanza bienaventurada».
+                    </p>
+                    <span class="inline-block mt-4 text-xs font-semibold text-brand-blue">1 Tesalonicenses 4:16-17; Tito 2:13</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Schedule Section -->
+    <section id="horarios" class="py-20 bg-white border-b border-brand-lavender/50 water-wave-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Reuniones Semanales</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                    Horarios de Servicio
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Te abrimos nuestras puertas. Encuentra el horario perfecto para congregarte con tu familia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-2xl gp-card-shadow border-2 border-brand-green p-8 relative flex flex-col justify-between transform hover:-translate-y-1 transition duration-300">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-green text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow">
+                        Servicio Principal
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-heading font-extrabold text-2xl text-brand-blue">DOMINGO</span>
+                            <span class="w-10 h-10 bg-emerald-50 text-brand-green rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-sun"></i></span>
+                        </div>
+                        <div class="text-2xl font-black text-brand-green mb-4">11:00 AM – 12:30 PM</div>
+                        <h4 class="font-heading font-bold text-slate-800 text-lg mb-2">Servicio Dominical de Adoración</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Un tiempo de bendición familiar con alabanza en vivo, mensaje de la Palabra de Dios y clases infantiles.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex items-center justify-between text-xs text-slate-500">
+                        <span><i class="fa-solid fa-child mr-1 text-brand-green"></i> Escuela Infantil</span>
+                        <span><i class="fa-solid fa-video mr-1 text-brand-blue"></i> En Vivo</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl gp-card-shadow border border-brand-lavender p-8 flex flex-col justify-between transform hover:-translate-y-1 transition duration-300">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-heading font-extrabold text-2xl text-brand-blue">LUNES</span>
+                            <span class="w-10 h-10 bg-blue-50 text-brand-blue rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-hands-praying"></i></span>
+                        </div>
+                        <div class="text-2xl font-black text-brand-blue mb-4">7:00 PM – 8:00 PM</div>
+                        <h4 class="font-heading font-bold text-slate-800 text-lg mb-2">Reunión de Oración y Clamor</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Nos unimos en fe a orar por peticiones familiares, sanidad y fortaleza para nuestra comunidad.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex items-center justify-between text-xs text-slate-500">
+                        <span><i class="fa-solid fa-users mr-1"></i> Presencial</span>
+                        <span><i class="fa-solid fa-fire mr-1 text-brand-green"></i> Intercesión</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl gp-card-shadow border border-brand-lavender p-8 flex flex-col justify-between transform hover:-translate-y-1 transition duration-300">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-heading font-extrabold text-2xl text-brand-blue">MIÉRCOLES</span>
+                            <span class="w-10 h-10 bg-indigo-50 text-brand-blueDark rounded-lg flex items-center justify-center text-lg"><i class="fa-solid fa-book-open"></i></span>
+                        </div>
+                        <div class="text-2xl font-black text-brand-blue mb-4">7:00 PM – 8:30 PM</div>
+                        <h4 class="font-heading font-bold text-slate-800 text-lg mb-2">Estudio Bíblico Familiar</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Enseñanza práctica de la Escritura para fortalecer principios y valores bíblicos en la vida diaria.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex items-center justify-between text-xs text-slate-500">
+                        <span><i class="fa-solid fa-graduation-cap mr-1"></i> Discipulado</span>
+                        <span><i class="fa-solid fa-house-chimney mr-1"></i> Para el Hogar</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Section -->
+<section id="ministerios" class="py-20 px-4 sm:px-6 bg-brand-lavenderLight border-b border-brand-lavender/50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Creciendo Juntos</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                Ministerios para la Familia
+            </h2>
+            <p class="text-slate-600 text-base">
+                Cada grupo de edad tiene un lugar para aprender, servir y conectar en la casa de Dios.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Tarjeta 1: Niños -->
+            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                <div class="h-44 overflow-hidden relative">
+                    <img src="assets/images/ministerios/ninos.jpg" alt="Ministerio Infantil" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/20"></div>
+                    <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Niños</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Ministerio Infantil</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        Enseñanzas dinámicas y creativas para cimentar la fe en los más pequeños.
+                    </p>
+                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Jóvenes -->
+            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                <div class="h-44 overflow-hidden relative">
+                    <img src="assets/images/ministerios/jovenes.jpg" alt="Jóvenes" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/20"></div>
+                    <span class="absolute top-3 left-3 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Jóvenes</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Jóvenes de Fe</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        Un espacio vibrante para que los jóvenes fortalezcan su propósito e identidad en Cristo.
+                    </p>
+                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Alabanza -->
+            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                <div class="h-44 overflow-hidden relative">
+                    <img src="assets/images/ministerios/alabanza.jpg" alt="Alabanza" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/20"></div>
+                    <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">Alabanza</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Adoración & Música</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        Guiando a la iglesia a la presencia del Señor en cada tiempo de adoración.
+                    </p>
+                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Familias -->
+            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                <div class="h-44 overflow-hidden relative">
+                    <img src="assets/images/ministerios/familias.jpg" alt="Matrimonios" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/20"></div>
+                    <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Familias</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Matrimonios y Hogares</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        Reuniones enfocadas en edificar parejas sólidas y aconsejar a los padres.
+                    </p>
+                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Sermon & Media Section con los botones compactos idénticos a los de arriba -->
+    <section id="sermones" class="py-16 bg-brand-navyDark text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-brand-green font-bold text-xs tracking-wider uppercase">Prédicas y Transmisiones</span>
+                <h2 class="font-heading text-2xl sm:text-3xl font-extrabold mt-1">
+                    Mensajes que edifican tu vida
+                </h2>
+                <p class="text-slate-300 text-xs mt-1">
+                    Revive nuestros mensajes recientes directamente desde YouTube.
+                </p>
+            </div>
+
+            <!-- Cuadrícula compacta: 2 columnas, 3 filas -->
+            <div id="listaPredicasGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Estado de carga inicial -->
+                <div class="col-span-full text-center py-8 text-slate-400 animate-pulse text-xs">
+                    Cargando las prédicas recientes del canal...
+                </div>
+            </div>
+
+            <!-- Botones compactos de En Vivo idénticos a la barra superior -->
+            <div class="text-center mt-8 flex flex-wrap justify-center gap-2">
+                <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams" target="_blank" class="bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-md transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-brands fa-youtube"></i> En Vivo YouTube
+                </a>
+                <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/live_videos/" target="_blank" class="bg-[#1877F2] hover:bg-[#145dbf] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-md transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-brands fa-facebook"></i> En Vivo Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donaciones" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div class="bg-gradient-to-br from-brand-blueDark to-brand-navyDark rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div>
+                    <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Generosidad & Ofrendas</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold mt-2 mb-6 leading-tight">
+                        Apoya la Misión de la Iglesia de la Familia
+                    </h2>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-6">
+                        Gracias a tus diezmos y ofrendas podemos continuar extendiendo el mensaje de salvación, apoyando a familias vulnerables y sosteniendo las instalaciones en Aberdeen, MD.
+                    </p>
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-brand-green"></i>
+                            <span>Donación 100% Segura y Confiable</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-receipt text-brand-green"></i>
+                            <span>Organización sin fines de lucro en EE. UU. (501c3)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque QR -->
+                <div class="bg-slate-900 border border-slate-800 text-white rounded-2xl p-6 sm:p-8 shadow-xl text-center">
+                    <h3 class="font-heading font-bold text-xl text-white mb-2">Escanea para Donar</h3>
+        
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+                        
+                        <!-- Tarjeta Zelle -->
+                        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col items-center justify-between">
+                            <a href="assets/images/qr/zelle_qr.png" download="Zelle_Iglesia_Fuente_De_Vida.png" class="bg-white p-3 rounded-lg mb-3 shadow-md group relative block transition transform hover:scale-105" title="Haz clic para descargar el QR de Zelle">
+                                <img src="assets/images/qr/zelle_qr.png" alt="Zelle QR Code" class="w-36 h-36 object-contain">
+                            </a>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-center gap-1.5 text-purple-400 font-bold text-lg">
+                                    <i class="fa-solid fa-bolt text-sm"></i>
+                                    <span>Zelle</span>
+                                </div>
+                                <p class="text-white font-mono font-bold text-sm tracking-wider">(443) 845-7097</p>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta PayPal -->
+                        <div class="bg-slate-800/80 rounded-xl p-5 border border-slate-700 flex flex-col items-center justify-between">
+                            <a href="assets/images/qr/paypal_qr.png" download="PayPal_Iglesia_Fuente_De_Vida.png" class="bg-white p-3 rounded-lg mb-3 shadow-md group relative block transition transform hover:scale-105" title="Haz clic para descargar el QR de PayPal">
+                                <img src="assets/images/qr/paypal_qr.png" alt="PayPal QR Code" class="w-36 h-36 object-contain">
+                            </a>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-center gap-1.5 text-[#0070BA] font-bold text-lg">
+                                    <i class="fa-brands fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                                <p class="text-slate-300 text-xs">Acepta tarjetas de crédito o débito</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Plan Your Visit Section -->
+    <section id="contacto" class="py-20 bg-slate-200/70 border-t border-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Te Esperamos</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                    Planifica tu Visita
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Estaremos felices de recibirte a ti y a tu familia en nuestro próximo servicio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Columna Izquierda: Formulario -->
+                <div class="bg-white rounded-2xl p-8 gp-card-shadow border border-brand-lavender/60 sticky top-28">
+                    <h3 class="font-heading font-bold text-xl text-brand-blue mb-6">Envíanos un mensaje</h3>
+                    
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Nombre Completo *</label>
+                            <input type="text" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Correo Electrónico *</label>
+                                <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">Teléfono</label>
+                                <input type="tel" placeholder="(443) 000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">¿Cómo podemos ayudarte?</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm text-slate-700">
+                                <option>Quiero planificar mi primera visita</option>
+                                <option>Petición de Oración / Consejería Pastoral</option>
+                                <option>Información sobre Ministerios</option>
+                                <option>Otra consulta</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 mb-1">Mensaje o Petición de Oración</label>
+                            <textarea rows="4" placeholder="Escribe aquí tu mensaje..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenHover text-white py-3.5 rounded-lg font-bold text-sm transition shadow">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                    <div id="formFeedback" class="hidden mt-4 p-3 bg-emerald-100 text-emerald-800 text-xs rounded-lg font-medium text-center">
+                        ¡Gracias por comunicarte! Tu mensaje ha sido enviado. Dios te bendiga.
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Ubicación y Mapa -->
+                <div class="flex flex-col space-y-6">
+                    <div class="bg-white p-6 rounded-2xl border border-brand-lavender/60 gp-card-shadow space-y-3">
+                        <h4 class="font-heading font-bold text-slate-900 text-lg">Ubicación de la Iglesia</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ubicada céntricamente en Aberdeen, MD, con estacionamiento cómodo y accesibilidad total.
+                        </p>
+                        <div class="text-sm space-y-2 text-slate-700">
+                            <p><strong>Dirección:</strong> 690 S Philadelphia Blvd #500, Aberdeen, MD 21001</p>
+                            <p><strong>Teléfono:</strong> (443) 845-7097</p>
+                            <p><strong>Correo:</strong> info@iglesiafuentedevidamd.com</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-80 rounded-2xl overflow-hidden shadow-lg border border-slate-200 relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077.5855018698294!2d-76.1738!3d39.5085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7dd50b44b8b6d%3A0x1d4a0a7f1a3f6a2b!2s690%20S%20Philadelphia%20Blvd%20%23500%2C%20Aberdeen%2C%20MD%2021001!5e0!3m2!1ses!2sus!4v1690000000000!5m2!1ses!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <div class="bg-brand-navyDark text-white p-6 rounded-2xl shadow-md border border-white/10">
+                        <h4 class="font-heading font-bold text-base mb-2 text-brand-green">
+                             Sigue a nuestra comunidad
+                        </h4>
+                        <p class="text-xs text-slate-300 mb-4">
+                            Conéctate con nosotros en redes sociales para ver servicios en vivo, fotos de eventos y anuncios semanales.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="bg-slate-800 hover:bg-[#1877F2] text-white py-3 px-2 rounded-xl text-xs font-semibold transition flex flex-col items-center gap-1.5">
+                                <i class="fa-brands fa-facebook text-lg"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="bg-slate-800 hover:bg-[#FF0000] text-white py-3 px-2 rounded-xl text-xs font-semibold transition flex flex-col items-center gap-1.5">
+                                <i class="fa-brands fa-youtube text-lg"></i>
+                                <span>YouTube</span>
+                            </a>
+                            <a href="https://www.instagram.com/ifdvida" target="_blank" class="bg-slate-800 hover:bg-[#E4405F] text-white py-3 px-2 rounded-xl text-xs font-semibold transition flex flex-col items-center gap-1.5">
+                                <i class="fa-brands fa-instagram text-lg"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navyDark text-slate-300 text-sm border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="bg-white p-2 rounded-xl inline-block">
+                        <img src="assets/images/logo/logo_rgb.png" alt="Fuente de Vida Logo" class="h-12 w-auto object-contain" />
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Una iglesia comprometida con llevar el Evangelio de Jesucristo a las familias de Aberdeen y Harford County, Maryland.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Navegación</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#inicio" class="hover:text-brand-green transition">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-brand-green transition">Sobre Nosotros</a></li>
+                        <li><a href="#creencias" class="hover:text-brand-green transition">Creencias</a></li>
+                        <li><a href="#horarios" class="hover:text-brand-green transition">Horarios de Servicios</a></li>
+                        <li><a href="#ministerios" class="hover:text-brand-green transition">Ministerios</a></li>
+                        <li><a href="#donaciones" class="hover:text-brand-green transition">Diezmos y Ofrendas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Horarios</h5>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><strong class="text-brand-green">Domingos:</strong> 11:00 AM (Servicio Principal)</li>
+                        <li><strong class="text-brand-green">Lunes:</strong> 7:00 PM (Reunión de Oración)</li>
+                        <li><strong class="text-brand-green">Miércoles:</strong> 7:00 PM (Estudio Bíblico)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Síguenos</h5>
+                    <p class="text-xs text-slate-400 mb-4">Acompáñanos en nuestras redes sociales para recibir transmisiones y mensajes semanales.</p>
+                    <div class="flex gap-3 text-lg">
+                        <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ifdvida" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Iglesia Fuente de Vida — Iglesia de la Familia. Todos los derechos reservados.</p>
+                <p>Aberdeen, Maryland</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Carga de prédicas con sistema de fallback inteligente (múltiples servicios API)
+        async function cargarGridPredicas() {
+            const channelId = "UChivYV3dPsKOCjNVPr74-NQ";
+            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+            const contenedor = document.getElementById('listaPredicasGrid');
+
+            // Lista de pasarelas de conversión RSS a JSON para asegurar disponibilidad
+            const apiEndpoints = [
+                `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`,
+                `https://api.factmaven.com/xml-to-json/?xml=${encodeURIComponent(rssUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
+            ];
+
+            let items = null;
+
+            // Intentar cargar mediante pasarela 1 (rss2json)
+            try {
+                const res1 = await fetch(apiEndpoints[0]);
+                const data1 = await res1.json();
+                if (data1.status === 'ok' && data1.items && data1.items.length > 0) {
+                    items = data1.items.map(v => ({
+                        title: v.title,
+                        link: v.link,
+                        videoId: v.link.includes('v=') ? v.link.split('v=')[1].split('&')[0] : '',
+                        pubDate: v.pubDate
+                    }));
+                }
+            } catch (e) {
+                console.warn("Pasarela 1 no disponible, intentando respaldo...");
+            }
+
+            // Pasarela 2 de respaldo si la principal falla
+            if (!items) {
+                try {
+                    const res2 = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
+                    const data2 = await res2.json();
+                    if (data2.contents) {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(data2.contents, "text/xml");
+                        const entries = Array.from(xmlDoc.querySelectorAll("entry"));
+                        if (entries.length > 0) {
+                            items = entries.map(entry => {
+                                const title = entry.querySelector("title") ? entry.querySelector("title").textContent : "";
+                                const link = entry.querySelector("link") ? entry.querySelector("link").getAttribute("href") : "";
+                                const videoId = entry.querySelector("yt\\:videoId, videoId") ? entry.querySelector("yt\\:videoId, videoId").textContent : (link.includes('v=') ? link.split('v=')[1] : '');
+                                const published = entry.querySelector("published") ? entry.querySelector("published").textContent : "";
+                                return { title, link, videoId, pubDate: published };
+                            });
+                        }
+                    }
+                } catch (e) {
+                    console.warn("Pasarela 2 no disponible.");
+                }
+            }
+
+            // Renderizar los videos si se obtuvieron resultados
+            if (items && items.length > 0) {
+                contenedor.innerHTML = '';
+                const ultimos6 = items.slice(0, 6);
+
+                ultimos6.forEach((video) => {
+                    const videoId = video.videoId || (video.link.includes('v=') ? video.link.split('v=')[1] : '');
+                    const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : 'assets/images/hero/hero_bg.jpg';
+                    const fechaPub = video.pubDate ? new Date(video.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+
+                    const tarjeta = `
+                        <a href="${video.link}" target="_blank" class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-md group hover:border-brand-green transition duration-300 flex items-center p-3 gap-3">
+                            <div class="w-28 sm:w-32 aspect-video bg-black rounded-lg overflow-hidden shrink-0 relative">
+                                <img src="${thumbnail}" alt="${video.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" referrerpolicy="strict-origin-when-cross-origin">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition"></div>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-brand-green text-white rounded-full flex items-center justify-center text-xs shadow group-hover:scale-110 transition">
+                                        <i class="fa-solid fa-play ml-0.5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-between flex-grow min-w-0">
+                                <div>
+                                    ${fechaPub ? `<span class="text-slate-400 text-[10px] block mb-1"><i class="fa-regular fa-calendar mr-1 text-brand-green"></i> ${fechaPub}</span>` : ''}
+                                    <h4 class="font-heading font-bold text-xs sm:text-sm text-slate-100 group-hover:text-brand-green transition line-clamp-2">
+                                        ${video.title}
+                                    </h4>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px] text-slate-400 mt-2">
+                                    <span class="text-brand-green font-semibold ml-auto">Ver mensaje &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    contenedor.innerHTML += tarjeta;
+                });
+            } else {
+                // Tarjetas de respaldo con enlaces directos si todas las APIs fallan
+                contenedor.innerHTML = `
+                    <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams" target="_blank" class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-md group hover:border-brand-green transition duration-300 flex items-center p-4 gap-4">
+                        <div class="w-12 h-12 bg-red-600/20 text-red-500 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow min-w-0">
+                            <div>
+                                <span class="text-brand-green text-[10px] uppercase font-bold tracking-wider block mb-0.5">Transmisión en Vivo</span>
+                                <h4 class="font-heading font-bold text-xs sm:text-sm text-slate-100 group-hover:text-brand-green transition truncate">
+                                    Cultos y Transmisiones Dominicales
+                                </h4>
+                            </div>
+                            <span class="text-xs text-slate-400 mt-1 flex items-center gap-1">Ver transmisiones recientes &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326/videos" target="_blank" class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-md group hover:border-brand-green transition duration-300 flex items-center p-4 gap-4">
+                        <div class="w-12 h-12 bg-brand-blue/20 text-brand-blue rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow min-w-0">
+                            <div>
+                                <span class="text-brand-green text-[10px] uppercase font-bold tracking-wider block mb-0.5">Biblioteca de Prédicas</span>
+                                <h4 class="font-heading font-bold text-xs sm:text-sm text-slate-100 group-hover:text-brand-green transition truncate">
+                                    Todos los Mensajes y Estudios Bíblicos
+                                </h4>
+                            </div>
+                            <span class="text-xs text-slate-400 mt-1 flex items-center gap-1">Ver catálogo de videos &rarr;</span>
+                        </div>
+                    </a>
+                `;
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('formFeedback');
+            feedback.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+
+        document.addEventListener("DOMContentLoaded", cargarGridPredicas);
+    </script>
+</body>
+</html>
