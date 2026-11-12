@@ -97,19 +97,20 @@
                 </a>
 
                 <!-- Desktop Menu Nav Links -->
-                <div class="hidden lg:flex items-center gap-8 font-medium text-slate-700 text-sm">
+                <div class="hidden lg:flex items-center gap-7 font-medium text-slate-700 text-sm">
                     <a href="#inicio" class="hover:text-brand-blue transition py-2 border-b-2 border-brand-green font-semibold text-brand-blue">Inicio</a>
                     <a href="#nosotros" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
                     <a href="#creencias" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Creencias</a>
                     <a href="#horarios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Horarios</a>
                     <a href="#ministerios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Ministerios</a>
                     <a href="#sermones" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Predicas</a>
-                    <a href="#contacto" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
+                    <a href="#visitanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
+                    <a href="#contactanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Contáctanos</a>
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="hidden sm:flex items-center gap-3">
-                    <a href="#contacto" class="bg-brand-green hover:bg-brand-greenHover text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition shadow-sm hover:shadow flex items-center gap-2">
+                    <a href="#visitanos" class="bg-brand-green hover:bg-brand-greenHover text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition shadow-sm hover:shadow flex items-center gap-2">
                         <i class="fa-solid fa-users text-xs"></i> Planifica tu Visita
                     </a>
                     <a href="#donaciones" class="bg-brand-blue hover:bg-brand-blueDark text-white px-4 py-2.5 rounded-lg font-semibold text-sm transition shadow-sm hover:shadow flex items-center gap-2">
@@ -133,45 +134,46 @@
             <a href="#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
             <a href="#sermones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Transmisiones y Prédicas</a>
             <a href="#donaciones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ofrendas y Diezmos</a>
-            <a href="#contacto" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contacto y Ubicación</a>
+            <a href="#visitanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ubicación y Visita</a>
+            <a href="#contactanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contáctanos</a>
             <div class="pt-2 flex flex-col gap-2">
-                <a href="#contacto" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green text-white py-2.5 rounded-lg font-semibold text-sm">Planifica tu Visita</a>
+                <a href="#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green text-white py-2.5 rounded-lg font-semibold text-sm">Planifica tu Visita</a>
                 <a href="#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue text-white py-2.5 rounded-lg font-semibold text-sm">Dar Diezmo u Ofrenda</a>
             </div>
         </div>
     </nav>
 
-<!-- Hero Section -->
-<section id="inicio" class="hero-section hero-gradient relative text-white py-24 lg:py-36 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide shadow-lg">
-            <i class="fa-solid fa-house-chimney-window text-brand-green"></i> Bienvenidos a tu casa de fe en Aberdeen, MD
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section hero-gradient relative text-white py-24 lg:py-36 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide shadow-lg">
+                <i class="fa-solid fa-house-chimney-window text-brand-green"></i> Bienvenidos a tu casa de fe en Aberdeen, MD
+            </div>
+            
+            <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3 leading-tight">
+                Fuente de <span class="text-brand-green">Vida</span>
+            </h1>
+            
+            <p class="font-heading text-2xl sm:text-3xl text-slate-100 font-bold mb-6">
+                Iglesia de la Familia
+            </p>
+
+            <p class="text-slate-200 text-base sm:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+                Un lugar donde la gracia de Dios fluye como un río de vida. Declaramos salvación, renovación y esperanza para todos los hogares de nuestra comunidad.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#horarios" class="w-full sm:w-auto bg-brand-green hover:bg-brand-greenHover text-white px-8 py-4 rounded-xl font-bold text-base transition duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                    <i class="fa-regular fa-calendar-check"></i> Horarios de Servicio
+                </a>
+                <a href="#sermones" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-base transition duration-200 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-circle-play text-brand-green"></i> Prédicas Recientes
+                </a>
+            </div>
         </div>
-        
-        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-3 leading-tight">
-            Fuente de <span class="text-brand-green">Vida</span>
-        </h1>
-        
-        <p class="font-heading text-2xl sm:text-3xl text-slate-100 font-bold mb-6">
-            Iglesia de la Familia
-        </p>
+    </section>
 
-        <p class="text-slate-200 text-base sm:text-lg max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-            Un lugar donde la gracia de Dios fluye como un río de vida. Declaramos salvación, renovación y esperanza para todos los hogares de nuestra comunidad.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#horarios" class="w-full sm:w-auto bg-brand-green hover:bg-brand-greenHover text-white px-8 py-4 rounded-xl font-bold text-base transition duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
-                <i class="fa-regular fa-calendar-check"></i> Horarios de Servicio
-            </a>
-            <a href="#sermones" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-xl font-bold text-base transition duration-200 flex items-center justify-center gap-3">
-                <i class="fa-solid fa-circle-play text-brand-green"></i> Prédicas Recientes
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Quick Location & Services Floating Card -->
+    <!-- Quick Location & Services Floating Card -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 -mt-12 sm:-mt-16">
         <div class="bg-white rounded-2xl gp-card-shadow p-6 sm:p-8 border border-brand-lavender/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
@@ -205,7 +207,7 @@
                     <div>
                         <h4 class="font-heading font-bold text-slate-900 text-base mb-1">Atención Pastoral</h4>
                         <p class="text-slate-600 text-sm leading-relaxed">¿Necesitas oración o consejería?<br>Llámanos: <strong>(443) 845-7097</strong></p>
-                        <a href="#contacto" class="inline-block mt-2 text-xs font-semibold text-brand-blue hover:text-brand-green transition">Enviar petición &rarr;</a>
+                        <a href="#contactanos" class="inline-block mt-2 text-xs font-semibold text-brand-blue hover:text-brand-green transition">Enviar petición &rarr;</a>
                     </div>
                 </div>
 
@@ -248,7 +250,7 @@
                     </div>
 
                     <div class="pt-4">
-                        <a href="#contacto" class="bg-brand-blue hover:bg-brand-blueDark text-white px-6 py-3 rounded-lg font-semibold text-sm transition shadow inline-flex items-center gap-2">
+                        <a href="#contactanos" class="bg-brand-blue hover:bg-brand-blueDark text-white px-6 py-3 rounded-lg font-semibold text-sm transition shadow inline-flex items-center gap-2">
                             <span>Conoce Más Sobre Nosotros</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -422,89 +424,89 @@
     </section>
 
     <!-- Ministries Section -->
-<section id="ministerios" class="py-20 px-4 sm:px-6 bg-brand-lavenderLight border-b border-brand-lavender/50">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Creciendo Juntos</span>
-            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
-                Ministerios para la Familia
-            </h2>
-            <p class="text-slate-600 text-base">
-                Cada grupo de edad tiene un lugar para aprender, servir y conectar en la casa de Dios.
-            </p>
+    <section id="ministerios" class="py-20 px-4 sm:px-6 bg-brand-lavenderLight border-b border-brand-lavender/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Creciendo Juntos</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                    Ministerios para la Familia
+                </h2>
+                <p class="text-slate-600 text-base">
+                    Cada grupo de edad tiene un lugar para aprender, servir y conectar en la casa de Dios.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Tarjeta 1: Niños -->
+                <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="assets/images/ministerios/ninos.jpg" alt="Ministerio Infantil" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20"></div>
+                        <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Niños</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Ministerio Infantil</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Enseñanzas dinámicas y creativas para cimentar la fe en los más pequeños.
+                        </p>
+                        <a href="#contactanos" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Jóvenes -->
+                <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="assets/images/ministerios/youth.jpg" alt="Jóvenes" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20"></div>
+                        <span class="absolute top-3 left-3 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Jóvenes</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Jóvenes de Fe</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Un espacio vibrante para que los jóvenes fortalezcan su propósito e identidad en Cristo.
+                        </p>
+                        <a href="#contactanos" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Alabanza -->
+                <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="assets/images/ministerios/adoracion.jpg" alt="Alabanza" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20"></div>
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">Alabanza</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Adoración & Música</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Guiando a la iglesia a la presencia del Señor en cada tiempo de adoración.
+                        </p>
+                        <a href="#contactanos" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Familias -->
+                <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="assets/images/ministerios/familias.jpg" alt="Matrimonios" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-blue/20"></div>
+                        <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Familias</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Matrimonios y Hogares</h4>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                            Reuniones enfocadas en edificar parejas sólidas y aconsejar a los padres.
+                        </p>
+                        <a href="#contactanos" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <!-- Tarjeta 1: Niños -->
-            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
-                <div class="h-44 overflow-hidden relative">
-                    <img src="assets/images/ministerios/ninos.jpg" alt="Ministerio Infantil" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-brand-blue/20"></div>
-                    <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Niños</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Ministerio Infantil</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
-                        Enseñanzas dinámicas y creativas para cimentar la fe en los más pequeños.
-                    </p>
-                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2: Jóvenes -->
-            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
-                <div class="h-44 overflow-hidden relative">
-                    <img src="assets/images/ministerios/youth.jpg" alt="Jóvenes" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-brand-blue/20"></div>
-                    <span class="absolute top-3 left-3 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Jóvenes</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Jóvenes de Fe</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
-                        Un espacio vibrante para que los jóvenes fortalezcan su propósito e identidad en Cristo.
-                    </p>
-                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3: Alabanza -->
-            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
-                <div class="h-44 overflow-hidden relative">
-                    <img src="assets/images/ministerios/adoracion.jpg" alt="Alabanza" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-brand-blue/20"></div>
-                    <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">Alabanza</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Adoración & Música</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
-                        Guiando a la iglesia a la presencia del Señor en cada tiempo de adoración.
-                    </p>
-                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Tarjeta 4: Familias -->
-            <div class="bg-white rounded-2xl border border-brand-lavender/70 overflow-hidden group hover:shadow-lg transition shadow-sm">
-                <div class="h-44 overflow-hidden relative">
-                    <img src="assets/images/ministerios/familias.jpg" alt="Matrimonios" class="w-full h-full object-top object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-brand-blue/20"></div>
-                    <span class="absolute top-3 left-3 bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Familias</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-heading font-bold text-slate-900 text-lg mb-2">Matrimonios y Hogares</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
-                        Reuniones enfocadas en edificar parejas sólidas y aconsejar a los padres.
-                    </p>
-                    <a href="#contacto" class="text-brand-blue font-bold text-xs hover:text-brand-green flex items-center gap-1">Más información &rarr;</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- Sermon & Media Section con los botones compactos idénticos a los de arriba -->
+    <!-- Sermon & Media Section -->
     <section id="sermones" class="py-16 bg-brand-navyDark text-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-2xl mx-auto mb-10">
@@ -519,13 +521,12 @@
 
             <!-- Cuadrícula compacta: 2 columnas, 3 filas -->
             <div id="listaPredicasGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Estado de carga inicial -->
                 <div class="col-span-full text-center py-8 text-slate-400 animate-pulse text-xs">
                     Cargando las prédicas recientes del canal...
                 </div>
             </div>
 
-            <!-- Botones compactos de En Vivo idénticos a la barra superior -->
+            <!-- Botones compactos de En Vivo -->
             <div class="text-center mt-8 flex flex-wrap justify-center gap-2">
                 <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams" target="_blank" class="bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-md transition flex items-center gap-1.5 shadow-sm">
                     <i class="fa-brands fa-youtube"></i> En Vivo YouTube
@@ -603,8 +604,8 @@
         </div>
     </section>
 
-    <!-- Contact & Plan Your Visit Section -->
-    <section id="contacto" class="py-20 bg-slate-200/70 border-t border-slate-300">
+    <!-- SECCIÓN 1: Planifica tu Visita (Ubicación, Mapa y Redes Sociales) -->
+    <section id="visitanos" class="py-20 bg-slate-200/70 border-t border-slate-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Te Esperamos</span>
@@ -620,7 +621,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
                 <!-- Columna Izquierda: Información de Ubicación -->
                 <div class="bg-white p-8 rounded-2xl border border-brand-lavender/60 gp-card-shadow space-y-4">
-                    <h4 class="font-heading font-bold text-slate-900 text-xl text-brand-blue">Ubicación de la Iglesia</h4>
+                    <h4 class="font-heading font-bold text-xl text-brand-blue">Ubicación de la Iglesia</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
                         Ubicada céntricamente en Aberdeen, MD, con estacionamiento cómodo y accesibilidad total.
                     </p>
@@ -645,8 +646,8 @@
                 </div>
             </div>
 
-            <!-- Fila 2: Sigue a nuestra comunidad (Ancho completo o adaptado) -->
-            <div class="max-w-3xl mx-auto mb-12">
+            <!-- Fila 2: Sigue a nuestra comunidad -->
+            <div class="max-w-3xl mx-auto">
                 <div class="bg-brand-navyDark text-white p-8 rounded-2xl shadow-md border border-white/10 text-center">
                     <h4 class="font-heading font-bold text-lg mb-2 text-brand-green">
                          Sigue a nuestra comunidad
@@ -670,11 +671,25 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Fila 3: Envíanos un mensaje (Centrado y debajo de las comunidades) -->
+    <!-- SECCIÓN 2 (NUEVA): Contáctanos / Envíanos un mensaje -->
+    <section id="contactanos" class="py-20 bg-white border-t border-brand-lavender/60 water-wave-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-green font-bold text-sm tracking-wider uppercase">Estamos para Servirte</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-brand-blueDark mt-2 mb-4">
+                    Contáctanos
+                </h2>
+                <p class="text-slate-600 text-base">
+                    ¿Tienes alguna pregunta, petición de oración o deseas comunicarte con nuestro equipo pastoral? Escríbenos aquí.
+                </p>
+            </div>
+
             <div class="max-w-3xl mx-auto">
-                <div class="bg-white rounded-2xl p-8 sm:p-10 gp-card-shadow border border-brand-lavender/60">
-                    <h3 class="font-heading font-bold text-2xl text-brand-blue mb-6 text-center">Envíanos un mensaje</h3>
+                <div class="bg-white rounded-2xl p-8 sm:p-10 gp-card-shadow border border-brand-lavender/80">
+                    <h3 class="font-heading font-bold text-xl text-brand-blue mb-6">Envíanos un mensaje</h3>
                     
                     <form onsubmit="handleFormSubmit(event)" class="space-y-4">
                         <div>
@@ -713,7 +728,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -739,6 +753,8 @@
                         <li><a href="#horarios" class="hover:text-brand-green transition">Horarios de Servicios</a></li>
                         <li><a href="#ministerios" class="hover:text-brand-green transition">Ministerios</a></li>
                         <li><a href="#donaciones" class="hover:text-brand-green transition">Diezmos y Ofrendas</a></li>
+                        <li><a href="#visitanos" class="hover:text-brand-green transition">Planifica tu Visita</a></li>
+                        <li><a href="#contactanos" class="hover:text-brand-green transition">Contáctanos</a></li>
                     </ul>
                 </div>
 
@@ -790,7 +806,6 @@
             const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
             const contenedor = document.getElementById('listaPredicasGrid');
 
-            // Lista de pasarelas de conversión RSS a JSON para asegurar disponibilidad
             const apiEndpoints = [
                 `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`,
                 `https://api.factmaven.com/xml-to-json/?xml=${encodeURIComponent(rssUrl)}`,
@@ -799,7 +814,6 @@
 
             let items = null;
 
-            // Intentar cargar mediante pasarela 1 (rss2json)
             try {
                 const res1 = await fetch(apiEndpoints[0]);
                 const data1 = await res1.json();
@@ -815,7 +829,6 @@
                 console.warn("Pasarela 1 no disponible, intentando respaldo...");
             }
 
-            // Pasarela 2 de respaldo si la principal falla
             if (!items) {
                 try {
                     const res2 = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
@@ -839,7 +852,6 @@
                 }
             }
 
-            // Renderizar los videos si se obtuvieron resultados
             if (items && items.length > 0) {
                 contenedor.innerHTML = '';
                 const ultimos6 = items.slice(0, 6);
@@ -876,7 +888,6 @@
                     contenedor.innerHTML += tarjeta;
                 });
             } else {
-                // Tarjetas de respaldo con enlaces directos si todas las APIs fallan
                 contenedor.innerHTML = `
                     <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams" target="_blank" class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-md group hover:border-brand-green transition duration-300 flex items-center p-4 gap-4">
                         <div class="w-12 h-12 bg-red-600/20 text-red-500 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
