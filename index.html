@@ -1,4 +1,4 @@
-<!-- autor Obed last update 11/12 -->
+<!-- autor Obed last update 11/12/2026 -->
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -675,7 +675,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 2 (NUEVA): Contáctanos / Envíanos un mensaje -->
+    <!-- SECCIÓN 2: Contáctanos / Envíanos un mensaje con Formspree -->
     <section id="contactanos" class="py-20 bg-white border-t border-brand-lavender/60 water-wave-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-3xl mx-auto mb-12">
@@ -692,24 +692,25 @@
                 <div class="bg-white rounded-2xl p-8 sm:p-10 gp-card-shadow border border-brand-lavender/80">
                     <h3 class="font-heading font-bold text-xl text-brand-blue mb-6">Envíanos un mensaje</h3>
                     
-                    <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <!-- Formulario conectado a Formspree -->
+                    <form action="https://formspree.io/f/xyewzeko" method="POST" class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Nombre Completo *</label>
-                            <input type="text" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                            <input type="text" name="nombre" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-slate-600 mb-1">Correo Electrónico *</label>
-                                <input type="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                                <input type="email" name="email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-600 mb-1">Teléfono</label>
-                                <input type="tel" placeholder="(443) 000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
+                                <input type="tel" name="telefono" placeholder="(443) 000-0000" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm">
                             </div>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">¿Cómo podemos ayudarte?</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm text-slate-700">
+                            <select name="motivo" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm text-slate-700">
                                 <option>Quiero planificar mi primera visita</option>
                                 <option>Petición de Oración / Consejería Pastoral</option>
                                 <option>Información sobre Ministerios</option>
@@ -718,15 +719,12 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Mensaje o Petición de Oración</label>
-                            <textarea rows="4" placeholder="Escribe aquí tu mensaje..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm"></textarea>
+                            <textarea name="mensaje" rows="4" placeholder="Escribe aquí tu mensaje..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:outline-none text-sm"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenHover text-white py-3.5 rounded-lg font-bold text-sm transition shadow">
                             Enviar Mensaje
                         </button>
                     </form>
-                    <div id="formFeedback" class="hidden mt-4 p-3 bg-emerald-100 text-emerald-800 text-xs rounded-lg font-medium text-center">
-                        ¡Gracias por comunicarte! Tu mensaje ha sido enviado. Dios te bendiga.
-                    </div>
                 </div>
             </div>
         </div>
@@ -921,16 +919,6 @@
                     </a>
                 `;
             }
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const feedback = document.getElementById('formFeedback');
-            feedback.classList.remove('hidden');
-            e.target.reset();
-            setTimeout(() => {
-                feedback.classList.add('hidden');
-            }, 5000);
         }
 
         document.addEventListener("DOMContentLoaded", cargarGridPredicas);
