@@ -1,0 +1,500 @@
+<!-- autor Obed rodriguez / Iglesia Fuente de Vida - Eventos -->
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Eventos - Iglesia Fuente de Vida | Aberdeen, MD</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#154B98',
+                            blueDark: '#0E3368',
+                            green: '#8CC63F',
+                            greenHover: '#76A933',
+                            lavender: '#C4C7E7',
+                            lavenderLight: '#F3F4FB',
+                            navyDark: '#0B1B36',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(14, 51, 104, 0.94) 0%, rgba(21, 75, 152, 0.88) 100%),
+                        url('assets/images/hero/hero_bg.jpg') center/cover no-repeat;
+        }
+        .gp-card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(21, 75, 152, 0.08), 0 4px 12px -2px rgba(21, 75, 152, 0.04);
+        }
+        .water-wave-bg {
+            background-image: radial-gradient(#C4C7E7 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-brand-lavenderLight text-slate-700 font-sans antialiased selection:bg-brand-green selection:text-white">
+
+    <!-- Top Contact Info Bar -->
+    <header class="bg-brand-blueDark text-slate-200 text-xs sm:text-sm py-2.5 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-5">
+                <a href="https://maps.google.com/?q=690+S+Philadelphia+Blvd+#500,+Aberdeen,+MD+21001" target="_blank" class="hover:text-brand-green transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot text-brand-green"></i>
+                    <span>690 S Philadelphia Blvd #500, Aberdeen, MD 21001</span>
+                </a>
+                <a href="tel:4438457097" class="hover:text-brand-green transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-brand-green"></i>
+                    <span>(443) 845-7097</span>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-brand-lavender text-xs hidden md:inline"><i class="fa-solid fa-heart mr-1 text-brand-green"></i> Iglesia de la Familia en Harford County</span>
+                <div class="flex items-center gap-3 text-sm">
+                    <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="hover:text-brand-green transition" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="hover:text-brand-green transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/ifdvida" target="_blank" class="hover:text-brand-green transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group py-2">
+                    <img src="assets/images/logo/logo_rgb.png" alt="Fuente de Vida - Iglesia de la familia" class="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
+                </a>
+
+                <!-- Desktop Menu Nav Links -->
+                <div class="hidden lg:flex items-center gap-4 xl:gap-5 font-medium text-slate-700 text-xs xl:text-sm">
+                    <a href="index.html#inicio" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Inicio</a>
+                    <a href="index.html#nosotros" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
+                    <a href="index.html#creencias" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Creencias</a>
+                    <a href="index.html#horarios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Horarios</a>
+                    <a href="index.html#ministerios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Ministerios</a>
+                    <a href="eventos.html" class="hover:text-brand-blue transition py-2 border-b-2 border-brand-green font-semibold text-brand-blue">Eventos</a>
+                    <a href="index.html#sermones" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Predicas</a>
+                    <a href="index.html#visitanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hidden sm:flex items-center gap-2.5">
+                    <a href="index.html#contactanos" class="bg-brand-green hover:bg-brand-greenHover text-white px-3.5 xl:px-4 py-2.5 rounded-lg font-semibold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
+                        <i class="fa-solid fa-users text-xs"></i> Contáctanos
+                    </a>
+                    <a href="index.html#donaciones" class="bg-brand-blue hover:bg-brand-blueDark text-white px-3 py-2.5 rounded-lg font-semibold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
+                        <i class="fa-solid fa-heart text-xs"></i> Donar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html#inicio" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Inicio</a>
+            <a href="index.html#nosotros" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Nosotros</a>
+            <a href="index.html#creencias" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Creencias</a>
+            <a href="index.html#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Horarios y Servicios</a>
+            <a href="index.html#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
+            <a href="eventos.html" onclick="toggleMobileMenu()" class="block py-2 text-brand-blue font-semibold border-b border-slate-100">Eventos</a>
+            <a href="index.html#sermones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Transmisiones y Prédicas</a>
+            <a href="index.html#donaciones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ofrendas y Diezmos</a>
+            <a href="index.html#visitanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ubicación y Visita</a>
+            <a href="index.html#contactanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contáctanos</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="index.html#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green text-white py-2.5 rounded-lg font-semibold text-sm">Planifica tu Visita</a>
+                <a href="index.html#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue text-white py-2.5 rounded-lg font-semibold text-sm">Dar Diezmo u Ofrenda</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Events -->
+    <section class="hero-section hero-gradient relative text-white py-20 lg:py-28 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide shadow-lg">
+                <i class="fa-solid fa-camera-retro text-brand-green"></i> Memorias de nuestra familia en Cristo
+            </div>
+            
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                Galería de <span class="text-brand-green">Eventos</span>
+            </h1>
+
+            <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
+                Revive cada celebración, bautizo, actividad juvenil y encuentro familiar que Dios nos ha permitido disfrutar en Aberdeen, MD.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Gallery Section -->
+    <section class="py-16 px-4 sm:px-6 max-w-7xl mx-auto water-wave-bg">
+        
+        <!-- Filtros de Categoría -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-14">
+            <button onclick="filtrarEventos('todos', this)" class="filtro-btn bg-brand-blue text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm transition">
+                Todos los Eventos
+            </button>
+            <button onclick="filtrarEventos('bautizos', this)" class="filtro-btn bg-white text-slate-600 hover:bg-brand-blue hover:text-white border border-brand-lavender px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition">
+                Bautizos en Agua
+            </button>
+            <button onclick="filtrarEventos('mujeres', this)" class="filtro-btn bg-white text-slate-600 hover:bg-brand-blue hover:text-white border border-brand-lavender px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition">
+                Mujeres
+            </button>
+            <button onclick="filtrarEventos('ninos', this)" class="filtro-btn bg-white text-slate-600 hover:bg-brand-blue hover:text-white border border-brand-lavender px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition">
+                Iglesia de Niños
+            </button>
+            <button onclick="filtrarEventos('jovenes', this)" class="filtro-btn bg-white text-slate-600 hover:bg-brand-blue hover:text-white border border-brand-lavender px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition">
+                Jóvenes
+            </button>
+        </div>
+
+        <!-- Contenedor de Lista de Eventos -->
+        <div class="space-y-16">
+
+            <!-- ============================================================== -->
+            <!-- EVENTO 1: BAUTIZOS EN AGUA — NUEVA VIDA EN CRISTO              -->
+            <!-- ============================================================== -->
+            <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="bautizos">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-emerald-50 text-brand-green border border-brand-green/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bautizos</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-brand-blueDark">Bautizos en Agua — Nueva Vida en Cristo</h3>
+                        <p class="text-slate-600 text-sm mt-2 max-w-3xl">
+                            Un día de fiesta en los cielos y en nuestra congregación celebrando el paso de fe y obediencia de nuestros hermanos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fotos del Evento 1 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_1_imagen1.jpg" alt="Bautizos en Agua — Nueva Vida en Cristo - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_1_imagen2.jpg" alt="Bautizos en Agua — Nueva Vida en Cristo - Imagen 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_1_imagen3.jpg" alt="Bautizos en Agua — Nueva Vida en Cristo - Imagen 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_1_imagen4.jpg" alt="Bautizos en Agua — Nueva Vida en Cristo - Imagen 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- EVENTO 2: MUJERES QUE MARCAN UNA GENERACIÓN                    -->
+            <!-- ============================================================== -->
+            <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="mujeres">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-pink-50 text-pink-600 border border-pink-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Mujeres</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-brand-blueDark">Mujeres que marcan una generación</h3>
+                        <p class="text-slate-600 text-sm mt-2 max-w-3xl">
+                            Un tiempo especial de adoración, palabra y hermandad donde las mujeres de nuestra iglesia son fortalecidas para impactar sus hogares y su entorno.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fotos del Evento 2 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_2_imagen1.jpg" alt="Mujeres que marcan una generación - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_2_imagen2.jpg" alt="Mujeres que marcan una generación - Imagen 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_2_imagen3.jpg" alt="Mujeres que marcan una generación - Imagen 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_2_imagen4.jpg" alt="Mujeres que marcan una generación - Imagen 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- EVENTO 3: IGLESIA DE NIÑOS                                     -->
+            <!-- ============================================================== -->
+            <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="ninos">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-blue-50 text-brand-blue border border-brand-blue/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Niños</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-brand-blueDark">Iglesia de Niños</h3>
+                        <p class="text-slate-600 text-sm mt-2 max-w-3xl">
+                            Momentos llenos de alegría, juegos, creatividad y enseñanza bíblica para que los más pequeños conozcan el amor de Jesús.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fotos del Evento 3 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_3_imagen1.jpg" alt="Iglesia de Niños - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_3_imagen2.jpg" alt="Iglesia de Niños - Imagen 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_3_imagen3.jpg" alt="Iglesia de Niños - Imagen 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_3_imagen4.jpg" alt="Iglesia de Niños - Imagen 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- EVENTO 4: NUEVA GENERACIÓN DE JÓVENES                          -->
+            <!-- ============================================================== -->
+            <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="jovenes">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-purple-50 text-purple-600 border border-purple-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Jóvenes</span>
+                        </div>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-brand-blueDark">Nueva Generación de Jóvenes</h3>
+                        <p class="text-slate-600 text-sm mt-2 max-w-3xl">
+                            Una generación apasionada por Cristo, creciendo en fe, propósito y unidad a través de encuentros, adoración y la Palabra.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fotos del Evento 4 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_4_imagen1.jpg" alt="Nueva Generación de Jóvenes - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_4_imagen2.jpg" alt="Nueva Generación de Jóvenes - Imagen 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_4_imagen3.jpg" alt="Nueva Generación de Jóvenes - Imagen 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                    <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
+                        <img src="assets/images/eventos/evento_4_imagen4.jpg" alt="Nueva Generación de Jóvenes - Imagen 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-brand-navyDark/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="w-10 h-10 bg-white/90 text-brand-blue rounded-full flex items-center justify-center shadow"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón de regreso -->
+        <div class="text-center mt-14">
+            <a href="index.html" class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blueDark text-white px-7 py-3.5 rounded-xl font-bold text-sm transition shadow">
+                <i class="fa-solid fa-arrow-left"></i> Volver a la Página Principal
+            </a>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal para ver fotos en grande -->
+    <div id="lightboxModal" onclick="cerrarLightbox()" class="fixed inset-0 z-50 hidden bg-brand-navyDark/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <button onclick="cerrarLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-green text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-5xl max-h-[85vh] flex flex-col items-center" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="Vista ampliada" class="max-h-[75vh] w-auto rounded-xl shadow-2xl border-2 border-white/20 object-contain">
+            <p id="lightboxCaption" class="text-white font-heading font-semibold text-sm sm:text-base mt-4 text-center"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navyDark text-slate-300 text-sm border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="bg-white p-2 rounded-xl inline-block">
+                        <img src="assets/images/logo/logo_rgb.png" alt="Fuente de Vida Logo" class="h-12 w-auto object-contain" />
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Una iglesia comprometida con llevar el Evangelio de Jesucristo a las familias de Aberdeen y Harford County, Maryland.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Navegación</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="index.html#inicio" class="hover:text-brand-green transition">Inicio</a></li>
+                        <li><a href="index.html#nosotros" class="hover:text-brand-green transition">Sobre Nosotros</a></li>
+                        <li><a href="index.html#creencias" class="hover:text-brand-green transition">Creencias</a></li>
+                        <li><a href="index.html#horarios" class="hover:text-brand-green transition">Horarios de Servicios</a></li>
+                        <li><a href="index.html#ministerios" class="hover:text-brand-green transition">Ministerios</a></li>
+                        <li><a href="eventos.html" class="hover:text-brand-green transition">Eventos</a></li>
+                        <li><a href="index.html#donaciones" class="hover:text-brand-green transition">Diezmos y Ofrendas</a></li>
+                        <li><a href="index.html#visitanos" class="hover:text-brand-green transition">Planifica tu Visita</a></li>
+                        <li><a href="index.html#contactanos" class="hover:text-brand-green transition">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Horarios</h5>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><strong class="text-brand-green">Domingos:</strong> 11:00 AM (Servicio Principal)</li>
+                        <li><strong class="text-brand-green">Lunes:</strong> 7:00 PM (Reunión de Oración)</li>
+                        <li><strong class="text-brand-green">Miércoles:</strong> 7:00 PM (Estudio Bíblico)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-heading font-bold text-white text-base mb-4">Síguenos</h5>
+                    <p class="text-xs text-slate-400 mb-4">Acompáñanos en nuestras redes sociales para recibir transmisiones y mensajes semanales.</p>
+                    <div class="flex gap-3 text-lg">
+                        <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/ifdvida" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Iglesia Fuente de Vida — Iglesia de la Familia. Todos los derechos reservados.</p>
+                <p>Aberdeen, Maryland</p>
+                <p>V1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Filtro de categorías de eventos
+        function filtrarEventos(categoria, botonActivo) {
+            const bloques = document.querySelectorAll('.evento-bloque');
+            const botones = document.querySelectorAll('.filtro-btn');
+
+            // Actualizar estilo de botones
+            botones.forEach(btn => {
+                btn.classList.remove('bg-brand-blue', 'text-white', 'font-bold', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'font-semibold', 'border', 'border-brand-lavender');
+            });
+            botonActivo.classList.remove('bg-white', 'text-slate-600', 'font-semibold', 'border', 'border-brand-lavender');
+            botonActivo.classList.add('bg-brand-blue', 'text-white', 'font-bold', 'shadow-sm');
+
+            // Mostrar/ocultar bloques de eventos
+            bloques.forEach(bloque => {
+                if (categoria === 'todos' || bloque.getAttribute('data-categoria') === categoria) {
+                    bloque.style.display = 'block';
+                } else {
+                    bloque.style.display = 'none';
+                }
+            });
+        }
+
+        // Visor de fotos (Lightbox)
+        function abrirLightbox(elemento) {
+            const img = elemento.querySelector('img');
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+
+            modalImg.src = img.src;
+            caption.textContent = img.alt;
+            modal.classList.remove('hidden');
+        }
+
+        function cerrarLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        // Cerrar lightbox con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') cerrarLightbox();
+        });
+    </script>
+</body>
+</html>
