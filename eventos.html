@@ -20,13 +20,13 @@
                 extend: {
                     colors: {
                         brand: {
-                            blue: '#154B98',
-                            blueDark: '#0E3368',
-                            green: '#8CC63F',
-                            greenHover: '#76A933',
-                            lavender: '#C4C7E7',
-                            lavenderLight: '#F3F4FB',
-                            navyDark: '#0B1B36',
+                            blue: '#154B98',         /* Deep Ocean Blue */
+                            blueDark: '#0E3368',     /* Darker shade for hover states */
+                            green: '#8CC63F',        /* Vibrant Leaf Green */
+                            greenHover: '#76A933',   /* Darker green for hover */
+                            lavender: '#C4C7E7',    /* Water stream light periwinkle/lavender */
+                            lavenderLight: '#F3F4FB',/* Subtle section background tint */
+                            navyDark: '#0B1B36',     /* Footer and dark backgrounds */
                         }
                     },
                     fontFamily: {
@@ -74,34 +74,34 @@
                     <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="hover:text-brand-green transition" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                     <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="hover:text-brand-green transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     <a href="https://www.instagram.com/ifdvida" target="_blank" class="hover:text-brand-green transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@iglesiafuentedevidamd" target="_blank" class="hover:text-brand-green transition" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 
-                <!-- Logo -->
+                <!-- Logo Agrandado -->
                 <a href="index.html" class="flex items-center group py-2">
                     <img src="assets/images/logo/logo_rgb.png" alt="Fuente de Vida - Iglesia de la familia" class="h-16 sm:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
                 </a>
 
-                <!-- Desktop Menu Nav Links -->
+                <!-- Desktop Menu Nav Links (Enlaces de navegación principales) -->
                 <div class="hidden lg:flex items-center gap-4 xl:gap-5 font-medium text-slate-700 text-xs xl:text-sm">
                     <a href="index.html#inicio" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Inicio</a>
                     <a href="index.html#nosotros" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
                     <a href="index.html#creencias" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Creencias</a>
                     <a href="index.html#horarios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Horarios</a>
                     <a href="index.html#ministerios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Ministerios</a>
-                    <a href="eventos.html" class="hover:text-brand-blue transition py-2 border-b-2 border-brand-green font-semibold text-brand-blue">Eventos</a>
                     <a href="index.html#sermones" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Predicas</a>
-                    <a href="index.html#visitanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
+                    <a href="index.html#visitanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos </a>
                 </div>
 
-                <!-- Action Buttons -->
+                <!-- Action Buttons (Botones de acción a la derecha - Sin botón de eventos) -->
                 <div class="hidden sm:flex items-center gap-2.5">
                     <a href="index.html#contactanos" class="bg-brand-green hover:bg-brand-greenHover text-white px-3.5 xl:px-4 py-2.5 rounded-lg font-semibold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
                         <i class="fa-solid fa-users text-xs"></i> Contáctanos
@@ -125,14 +125,14 @@
             <a href="index.html#creencias" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Creencias</a>
             <a href="index.html#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Horarios y Servicios</a>
             <a href="index.html#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
-            <a href="eventos.html" onclick="toggleMobileMenu()" class="block py-2 text-brand-blue font-semibold border-b border-slate-100">Eventos</a>
             <a href="index.html#sermones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Transmisiones y Prédicas</a>
             <a href="index.html#donaciones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ofrendas y Diezmos</a>
             <a href="index.html#visitanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ubicación y Visita</a>
             <a href="index.html#contactanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contáctanos</a>
+            
             <div class="pt-2 flex flex-col gap-2">
-                <a href="index.html#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green text-white py-2.5 rounded-lg font-semibold text-sm">Planifica tu Visita</a>
-                <a href="index.html#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue text-white py-2.5 rounded-lg font-semibold text-sm">Dar Diezmo u Ofrenda</a>
+                <a href="index.html#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green hover:bg-brand-greenHover text-white py-2.5 rounded-lg font-semibold text-sm transition">Planifica tu Visita</a>
+                <a href="index.html#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue hover:bg-brand-blueDark text-white py-2.5 rounded-lg font-semibold text-sm transition">Donar</a>
             </div>
         </div>
     </nav>
@@ -179,9 +179,7 @@
         <!-- Contenedor de Lista de Eventos -->
         <div class="space-y-16">
 
-            <!-- ============================================================== -->
-            <!-- EVENTO 1: BAUTIZOS EN AGUA — NUEVA VIDA EN CRISTO              -->
-            <!-- ============================================================== -->
+            <!-- EVENTO 1: BAUTIZOS EN AGUA -->
             <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="bautizos">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
                     <div>
@@ -195,7 +193,6 @@
                     </div>
                 </div>
 
-                <!-- Fotos del Evento 1 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
                         <img src="assets/images/eventos/evento_1_imagen1.jpg" alt="Bautizos en Agua — Nueva Vida en Cristo - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -224,9 +221,7 @@
                 </div>
             </div>
 
-            <!-- ============================================================== -->
-            <!-- EVENTO 2: MUJERES QUE MARCAN UNA GENERACIÓN                    -->
-            <!-- ============================================================== -->
+            <!-- EVENTO 2: MUJERES -->
             <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="mujeres">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
                     <div>
@@ -240,7 +235,6 @@
                     </div>
                 </div>
 
-                <!-- Fotos del Evento 2 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
                         <img src="assets/images/eventos/evento_2_imagen1.jpg" alt="Mujeres que marcan una generación - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -269,9 +263,7 @@
                 </div>
             </div>
 
-            <!-- ============================================================== -->
-            <!-- EVENTO 3: IGLESIA DE NIÑOS                                     -->
-            <!-- ============================================================== -->
+            <!-- EVENTO 3: NIÑOS -->
             <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="ninos">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
                     <div>
@@ -285,7 +277,6 @@
                     </div>
                 </div>
 
-                <!-- Fotos del Evento 3 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
                         <img src="assets/images/eventos/evento_3_imagen1.jpg" alt="Iglesia de Niños - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -314,9 +305,7 @@
                 </div>
             </div>
 
-            <!-- ============================================================== -->
-            <!-- EVENTO 4: NUEVA GENERACIÓN DE JÓVENES                          -->
-            <!-- ============================================================== -->
+            <!-- EVENTO 4: JÓVENES -->
             <div class="evento-bloque bg-white rounded-3xl p-6 sm:p-10 gp-card-shadow border border-brand-lavender/70" data-categoria="jovenes">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-8">
                     <div>
@@ -330,7 +319,6 @@
                     </div>
                 </div>
 
-                <!-- Fotos del Evento 4 -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div onclick="abrirLightbox(this)" class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm">
                         <img src="assets/images/eventos/evento_4_imagen1.jpg" alt="Nueva Generación de Jóvenes - Imagen 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -424,6 +412,7 @@
                         <a href="https://www.facebook.com/IglesiaFuentedeVidaMaryland/" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/@iglesiafuentedevidamarylan3326" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
                         <a href="https://www.instagram.com/ifdvida" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 text-white rounded-lg flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@iglesiafuentedevidamd" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-black text-white rounded-lg flex items-center justify-center transition border border-white/10" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
