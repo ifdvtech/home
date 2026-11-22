@@ -885,14 +885,14 @@
         }
 
         // Verifica si estamos dentro del horario de culto en Aberdeen, MD (America/New_York)
-        // Domingos: 10:55 AM - 1:00 PM | Miércoles: 6:55 PM - 8:45 PM
+        // Domingos: 10:30 AM (630 min) - 1:30 PM (810 min) | Miércoles: 6:55 PM - 8:45 PM
         function isChurchServiceTime() {
             try {
                 const nowNY = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
                 const day = nowNY.getDay(); // 0 = Domingo, 3 = Miércoles
                 const mins = nowNY.getHours() * 60 + nowNY.getMinutes();
 
-                const isSundayService = (day === 0 && mins >= (10 * 60 + 55) && mins <= (13 * 60));
+                const isSundayService = (day === 0 && mins >= (10 * 60 + 30) && mins <= (13 * 60 + 30));
                 const isWednesdayService = (day === 3 && mins >= (18 * 60 + 55) && mins <= (20 * 60 + 45));
 
                 return isSundayService || isWednesdayService;
@@ -914,6 +914,8 @@
                 section.classList.remove('block');
             }
             if (iframe) {
+                iframe.onload = null;
+                iframe.onerror = null;
                 iframe.src = '';
             }
             if (navLiveLink) {
@@ -930,9 +932,9 @@
             }
         }
 
-        // Muestra la sección solo cuando se confirma que estamos en horario y sin protocolo file:// ni errores
+        // Muestra la sección solo cuando estamos en horario, no es file:// y el iframe carga sin errores
         function showLiveSection() {
-            if (window.location.protocol === 'file:') {
+            if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
             }
@@ -945,8 +947,19 @@
 
             if (!section || !iframe) return;
 
-            iframe.onerror = () => hideLiveSectionCompletely();
+            let streamError = false;
+            const handleError = () => {
+                streamError = true;
+                hideLiveSectionCompletely();
+            };
+
+            iframe.onerror = handleError;
             iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
+
+            if (streamError) {
+                hideLiveSectionCompletely();
+                return;
+            }
 
             section.classList.remove('hidden');
             section.classList.add('block');
