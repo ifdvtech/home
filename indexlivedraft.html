@@ -974,8 +974,15 @@
             return match && match[1] ? match[1] : '';
         }
 
-        // Comprueba en el HTML de la pestaña /streams del canal si YouTube marca un video como en vivo ahora mismo
-        async function obtenerLiveActivoDesdeStreams() {
+        // Extrae los primeros videoId candidatos de /streams y del feed RSS (nunca toma uno sin verificar que esté en vivo)
+        async function obtenerCandidatosStreamCanal() {
+            const candidatos = [];
+            const agregarCandidato = (vid) => {
+                if (vid && /^[a-zA-Z0-9_-]{11}$/.test(vid) && !candidatos.includes(vid)) {
+                    candidatos.push(vid);
+                }
+            };
+
             const streamsUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/streams`;
             const proxies = [
                 `https://api.allorigins.win/raw?url=${encodeURIComponent(streamsUrl)}`,
@@ -989,57 +996,74 @@
                     const html = await res.text();
                     if (!html) continue;
 
-                    // Busca marcadores explícitos de transmisión en vivo o próxima emisión en YouTube
-                    const liveBadgeIndex = html.search(/"style":"LIVE"|"text":\{"runs":\[\{"text":"EN VIVO"\}\]|"text":"En vivo"|"isLive":true/i);
-                    if (liveBadgeIndex === -1) {
-                        return null;
+                    const matches = [...html.matchAll(/"videoId":"([a-zA-Z0-9_-]{11})"/g)];
+                    for (const m of matches.slice(0, 4)) {
+                        agregarCandidato(m[1]);
+                    }
+                    if (candidatos.length > 0) break;
+                } catch (_) {}
+            }
+
+            // Respaldo: revisar entradas recientes del feed RSS si /streams no respondió
+            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+            try {
+                const resRss = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+                const dataRss = await resRss.json();
+                if (dataRss && dataRss.status === 'ok' && Array.isArray(dataRss.items)) {
+                    for (const item of dataRss.items.slice(0, 3)) {
+                        agregarCandidato(extraerVideoIdYouTube(item.link || ''));
+                    }
+                }
+            } catch (_) {}
+
+            return candidatos;
+        }
+
+        // Comprueba en el HTML de /watch?v=VIDEO_ID si el video está transmitiendo en vivo AHORA mismo
+        async function esVideoRealmenteEnVivo(videoId) {
+            if (!videoId) return false;
+            const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            const proxies = [
+                `https://api.allorigins.win/raw?url=${encodeURIComponent(watchUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(watchUrl)}`
+            ];
+
+            for (const proxyUrl of proxies) {
+                try {
+                    const res = await fetch(proxyUrl);
+                    if (!res.ok) continue;
+                    const html = await res.text();
+                    if (!html) continue;
+
+                    // Verifica transmisión en vivo activa ("isLiveNow": true o badge en vivo activo)
+                    const liveNow = /"isLiveNow"\s*:\s*true/i.test(html);
+                    const isLiveFlag = /"isLive"\s*:\s*true/i.test(html);
+                    const isUpcoming = /"isUpcoming"\s*:\s*true/i.test(html);
+
+                    // Un video ya terminado puede conservar "isLiveContent": true, pero NO "isLiveNow": true
+                    if (liveNow || (isLiveFlag && !isUpcoming)) {
+                        return true;
                     }
 
-                    // Busca el videoId más cercano alrededor del indicador de LIVE
-                    const windowStart = Math.max(0, liveBadgeIndex - 1500);
-                    const windowEnd = Math.min(html.length, liveBadgeIndex + 1500);
-                    const snippet = html.slice(windowStart, windowEnd);
-
-                    const idMatch = snippet.match(/"videoId":"([a-zA-Z0-9_-]{11})"/) || html.slice(0, liveBadgeIndex).match(/"videoId":"([a-zA-Z0-9_-]{11})"[^}]*$/);
-                    if (idMatch && idMatch[1]) {
-                        return {
-                            videoId: idMatch[1],
-                            embedUrl: `https://www.youtube.com/embed/${idMatch[1]}?autoplay=0&rel=0`
-                        };
+                    if (html.includes('"videoDetails"')) {
+                        return false;
                     }
                 } catch (_) {}
             }
 
-            return null;
+            return false;
         }
 
-        // Verifica si un videoId sigue disponible públicamente en YouTube oEmbed
-        async function confirmarVideoDisponible(videoId) {
-            if (!videoId) return false;
-            const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
-            try {
-                const res = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(watchUrl)}&format=json`);
-                if (!res.ok) return false;
-                const data = await res.json();
-                return Boolean(data && data.title);
-            } catch (_) {
-                return false;
-            }
-        }
-
-        // Verifica estrictamente si hay un live activo y válido ahora mismo
+        // Solo devuelve embedUrl si el video está transmitiendo en vivo en este momento; si no, devuelve null
         async function verificarTransmisionActivaYouTube() {
-            const activeStream = await obtenerLiveActivoDesdeStreams();
-            if (!activeStream || !activeStream.videoId) {
-                return null;
+            const candidatos = await obtenerCandidatosStreamCanal();
+            for (const videoId of candidatos) {
+                const enVivo = await esVideoRealmenteEnVivo(videoId);
+                if (enVivo) {
+                    return `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                }
             }
-
-            const disponible = await confirmarVideoDisponible(activeStream.videoId);
-            if (!disponible) {
-                return null;
-            }
-
-            return activeStream.embedUrl;
+            return null;
         }
 
         // Muestra la sección solo cuando estamos en horario, no es file:// y hay un live activo real
