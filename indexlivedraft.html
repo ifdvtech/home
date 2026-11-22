@@ -967,31 +967,73 @@
             }
         }
 
-        // Comprueba en tiempo real desde el feed RSS de YouTube si existe una transmisión activa
-        async function verificarTransmisionActivaYouTube() {
+        // Extrae el videoId desde distintos formatos de URL de YouTube
+        function extraerVideoIdYouTube(url) {
+            if (!url) return '';
+            const match = url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?&]+)/) || url.match(/\/live\/([^?&]+)/) || url.match(/\/embed\/([^?&]+)/);
+            return match && match[1] ? match[1] : '';
+        }
+
+        // Obtiene el video más reciente del canal vía RSS para comprobar si está transmitiendo en vivo
+        async function obtenerUltimoVideoCanal() {
             const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+
             try {
-                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
-                const data = await res.json();
-                if (data && Array.isArray(data.items) && data.items.length > 0) {
-                    const liveItem = data.items.find((item) => {
-                        const raw = JSON.stringify(item).toLowerCase();
-                        return raw.includes('broadcast') || raw.includes('live');
-                    });
-                    if (liveItem && liveItem.link) {
-                        const match = liveItem.link.match(/[?&]v=([^&]+)/) || liveItem.link.match(/youtu\.be\/([^?&]+)/) || liveItem.link.match(/\/live\/([^?&]+)/);
-                        if (match && match[1]) {
-                            return `https://www.youtube.com/embed/${match[1]}?autoplay=0&rel=0`;
-                        }
+                const res1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+                const data1 = await res1.json();
+                if (data1 && data1.status === 'ok' && Array.isArray(data1.items) && data1.items.length > 0) {
+                    const latest = data1.items[0];
+                    return {
+                        title: latest.title || '',
+                        link: latest.link || '',
+                        videoId: extraerVideoIdYouTube(latest.link)
+                    };
+                }
+            } catch (_) {}
+
+            try {
+                const res2 = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
+                const data2 = await res2.json();
+                if (data2 && data2.contents) {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data2.contents, "text/xml");
+                    const entry = xmlDoc.querySelector("entry");
+                    if (entry) {
+                        const title = entry.querySelector("title") ? entry.querySelector("title").textContent : "";
+                        const link = entry.querySelector("link") ? entry.querySelector("link").getAttribute("href") : "";
+                        const ytVideoIdEl = entry.getElementsByTagName("yt:videoId")[0] || entry.querySelector("videoId");
+                        const videoId = (ytVideoIdEl && ytVideoIdEl.textContent) || extraerVideoIdYouTube(link);
+                        return { title, link, videoId };
                     }
                 }
-            } catch (e) {
-                // Si el feed no responde, no mostramos error ni sección rota
-            }
+            } catch (_) {}
+
             return null;
         }
 
-        // Muestra la sección solo cuando estamos en horario, no es file:// y hay transmisión activa
+        // Verifica si un video está realmente en vivo consultando su oEmbed de YouTube
+        // YouTube oEmbed devuelve HTTP 200 únicamente para videos/transmisiones públicas disponibles
+        async function verificarTransmisionActivaYouTube() {
+            const latestVideo = await obtenerUltimoVideoCanal();
+            if (!latestVideo || !latestVideo.videoId) {
+                return null;
+            }
+
+            const watchUrl = `https://www.youtube.com/watch?v=${latestVideo.videoId}`;
+            try {
+                const oembedRes = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(watchUrl)}&format=json`);
+                if (oembedRes.ok) {
+                    const oembedData = await oembedRes.json();
+                    if (oembedData && oembedData.title) {
+                        return `https://www.youtube.com/embed/${latestVideo.videoId}?autoplay=0&rel=0`;
+                    }
+                }
+            } catch (_) {}
+
+            return null;
+        }
+
+        // Muestra la sección solo cuando estamos en horario, no es file:// y el live está activo
         async function showLiveSection() {
             if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
                 hideLiveSectionCompletely();
@@ -1025,7 +1067,7 @@
                         }
                     } catch (_) {}
                 }
-            }, { once: true });
+            });
 
             iframe.onerror = failLive;
             iframe.onload = () => {
