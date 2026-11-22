@@ -869,6 +869,7 @@
 
     <script>
         const CHANNEL_ID = "UChivYV3dPsKOCjNVPr74-NQ";
+        let liveWatchdogTimer = null;
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -903,6 +904,11 @@
 
         // Oculta por completo la sección y todos los botones/enlaces de "En Vivo"
         function hideLiveSectionCompletely() {
+            if (liveWatchdogTimer) {
+                clearTimeout(liveWatchdogTimer);
+                liveWatchdogTimer = null;
+            }
+
             const section = document.getElementById('transmision');
             const iframe = document.getElementById('streamIframe');
             const navLiveLink = document.getElementById('navLiveLink');
@@ -932,38 +938,21 @@
             }
         }
 
-        // Muestra la sección solo cuando estamos en horario, no es file:// y el iframe carga sin errores
-        function showLiveSection() {
+        function revealLiveUI() {
             if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
             }
 
             const section = document.getElementById('transmision');
-            const iframe = document.getElementById('streamIframe');
             const navLiveLink = document.getElementById('navLiveLink');
             const mobileLiveLink = document.getElementById('mobileLiveLink');
             const heroLiveBtn = document.getElementById('heroLiveBtn');
 
-            if (!section || !iframe) return;
-
-            let streamError = false;
-            const handleError = () => {
-                streamError = true;
-                hideLiveSectionCompletely();
-            };
-
-            iframe.onerror = handleError;
-            iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
-
-            if (streamError) {
-                hideLiveSectionCompletely();
-                return;
+            if (section) {
+                section.classList.remove('hidden');
+                section.classList.add('block');
             }
-
-            section.classList.remove('hidden');
-            section.classList.add('block');
-
             if (navLiveLink) {
                 navLiveLink.classList.remove('hidden');
                 navLiveLink.classList.add('flex');
@@ -976,6 +965,82 @@
                 heroLiveBtn.classList.remove('hidden');
                 heroLiveBtn.classList.add('flex');
             }
+        }
+
+        // Comprueba en tiempo real desde el feed RSS de YouTube si existe una transmisión activa
+        async function verificarTransmisionActivaYouTube() {
+            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+            try {
+                const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+                const data = await res.json();
+                if (data && Array.isArray(data.items) && data.items.length > 0) {
+                    const liveItem = data.items.find((item) => {
+                        const raw = JSON.stringify(item).toLowerCase();
+                        return raw.includes('broadcast') || raw.includes('live');
+                    });
+                    if (liveItem && liveItem.link) {
+                        const match = liveItem.link.match(/[?&]v=([^&]+)/) || liveItem.link.match(/youtu\.be\/([^?&]+)/) || liveItem.link.match(/\/live\/([^?&]+)/);
+                        if (match && match[1]) {
+                            return `https://www.youtube.com/embed/${match[1]}?autoplay=0&rel=0`;
+                        }
+                    }
+                }
+            } catch (e) {
+                // Si el feed no responde, no mostramos error ni sección rota
+            }
+            return null;
+        }
+
+        // Muestra la sección solo cuando estamos en horario, no es file:// y hay transmisión activa
+        async function showLiveSection() {
+            if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
+                hideLiveSectionCompletely();
+                return;
+            }
+
+            const section = document.getElementById('transmision');
+            const iframe = document.getElementById('streamIframe');
+            if (!section || !iframe) return;
+
+            const activeEmbedUrl = await verificarTransmisionActivaYouTube();
+            if (!activeEmbedUrl) {
+                hideLiveSectionCompletely();
+                return;
+            }
+
+            let isDismissed = false;
+            const failLive = () => {
+                if (!isDismissed) {
+                    isDismissed = true;
+                    hideLiveSectionCompletely();
+                }
+            };
+
+            window.addEventListener('message', (event) => {
+                if (typeof event.data === 'string') {
+                    try {
+                        const payload = JSON.parse(event.data);
+                        if (payload && (payload.event === 'onError' || payload.info === 150 || payload.info === 101 || payload.info === 100 || payload.info === 2)) {
+                            failLive();
+                        }
+                    } catch (_) {}
+                }
+            }, { once: true });
+
+            iframe.onerror = failLive;
+            iframe.onload = () => {
+                if (liveWatchdogTimer) {
+                    clearTimeout(liveWatchdogTimer);
+                }
+                liveWatchdogTimer = setTimeout(() => {
+                    if (!isChurchServiceTime()) {
+                        failLive();
+                    }
+                }, 4000);
+            };
+
+            iframe.src = activeEmbedUrl;
+            revealLiveUI();
         }
 
         // Carga de prédicas con sistema de fallback inteligente (múltiples servicios API)
