@@ -547,16 +547,7 @@
 
             <div class="bg-slate-900 rounded-2xl p-2 sm:p-3 border border-slate-700/80 shadow-2xl">
                 <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                    <iframe 
-                        id="streamIframe"
-                        class="absolute inset-0 w-full h-full"
-                        src="" 
-                        title="Iglesia Fuente de Vida - Transmisión en Vivo"
-                        frameborder="0" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
+                    <div id="streamPlayer" class="w-full h-full"></div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 px-2 pb-1 text-xs text-slate-300">
@@ -869,6 +860,8 @@
 
     <script>
         const CHANNEL_ID = "UChivYV3dPsKOCjNVPr74-NQ";
+        let ytPlayer = null;
+        let ytApiReady = false;
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -901,10 +894,55 @@
             }
         }
 
+        function onError(event) {
+            const errors = {
+                2: "INVALID_VIDEO_ID",
+                5: "HTML5_PLAYER_ERROR",
+                100: "VIDEO_NOT_FOUND",
+                101: "EMBEDDING_NOT_ALLOWED",
+                150: "EMBEDDING_NOT_ALLOWED",
+                153: "MISSING_CLIENT_IDENTITY"
+            };
+
+            const error = errors[event.data] || "UNKNOWN_ERROR";
+
+            console.log({
+                code: event.data,
+                error: error
+            });
+
+            switch (error) {
+                case "VIDEO_NOT_FOUND":
+                    console.log("Video eliminado o privado");
+                    break;
+
+                case "EMBEDDING_NOT_ALLOWED":
+                    console.log("Video bloqueado para iframe");
+                    break;
+
+                case "HTML5_PLAYER_ERROR":
+                    console.log("Error de reproducción");
+                    break;
+
+                case "INVALID_VIDEO_ID":
+                    console.log("ID incorrecto");
+                    break;
+
+                case "MISSING_CLIENT_IDENTITY":
+                    console.log("Problema de identificación");
+                    break;
+
+                default:
+                    console.log("Error desconocido");
+            }
+
+            // No mostrar la sección ni los botones de En Vivo cuando ocurre error
+            hideLiveSectionCompletely();
+        }
+
         // Oculta por completo la sección y todos los botones/enlaces de "En Vivo"
         function hideLiveSectionCompletely() {
             const section = document.getElementById('transmision');
-            const iframe = document.getElementById('streamIframe');
             const navLiveLink = document.getElementById('navLiveLink');
             const mobileLiveLink = document.getElementById('mobileLiveLink');
             const heroLiveBtn = document.getElementById('heroLiveBtn');
@@ -913,10 +951,11 @@
                 section.classList.add('hidden');
                 section.classList.remove('block');
             }
-            if (iframe) {
-                iframe.onload = null;
-                iframe.onerror = null;
-                iframe.src = '';
+            if (ytPlayer && typeof ytPlayer.destroy === 'function') {
+                try {
+                    ytPlayer.destroy();
+                } catch (e) {}
+                ytPlayer = null;
             }
             if (navLiveLink) {
                 navLiveLink.classList.add('hidden');
@@ -932,7 +971,7 @@
             }
         }
 
-        // Muestra la sección solo cuando estamos en horario, no es file:// y el iframe carga sin errores
+        // Muestra la sección solo cuando estamos en horario, no es file:// y el reproductor carga sin errores
         function showLiveSection() {
             if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
                 hideLiveSectionCompletely();
@@ -940,26 +979,11 @@
             }
 
             const section = document.getElementById('transmision');
-            const iframe = document.getElementById('streamIframe');
             const navLiveLink = document.getElementById('navLiveLink');
             const mobileLiveLink = document.getElementById('mobileLiveLink');
             const heroLiveBtn = document.getElementById('heroLiveBtn');
 
-            if (!section || !iframe) return;
-
-            let streamError = false;
-            const handleError = () => {
-                streamError = true;
-                hideLiveSectionCompletely();
-            };
-
-            iframe.onerror = handleError;
-            iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
-
-            if (streamError) {
-                hideLiveSectionCompletely();
-                return;
-            }
+            if (!section || !ytApiReady || !window.YT || !window.YT.Player) return;
 
             section.classList.remove('hidden');
             section.classList.add('block');
@@ -976,7 +1000,35 @@
                 heroLiveBtn.classList.remove('hidden');
                 heroLiveBtn.classList.add('flex');
             }
+
+            if (!ytPlayer) {
+                ytPlayer = new YT.Player('streamPlayer', {
+                    width: '100%',
+                    height: '100%',
+                    playerVars: {
+                        autoplay: 0,
+                        rel: 0,
+                        playsinline: 1
+                    },
+                    events: {
+                        onReady: (event) => {
+                            event.target.cuePlaylist({
+                                listType: 'user_uploads',
+                                list: CHANNEL_ID
+                            });
+                        },
+                        onError: onError
+                    }
+                });
+            }
         }
+
+        window.onYouTubeIframeAPIReady = function () {
+            ytApiReady = true;
+            if (isChurchServiceTime()) {
+                showLiveSection();
+            }
+        };
 
         // Carga de prédicas con sistema de fallback inteligente (múltiples servicios API)
         async function cargarGridPredicas() {
@@ -1099,9 +1151,19 @@
             }
         }
 
+        // Carga el script oficial de YouTube IFrame API
+        (function loadYouTubeAPI() {
+            if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+                const tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
+        })();
+
         document.addEventListener("DOMContentLoaded", () => {
             hideLiveSectionCompletely();
-            if (isChurchServiceTime()) {
+            if (isChurchServiceTime() && ytApiReady) {
                 showLiveSection();
             }
             cargarGridPredicas();
