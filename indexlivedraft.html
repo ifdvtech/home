@@ -974,66 +974,75 @@
             return match && match[1] ? match[1] : '';
         }
 
-        // Obtiene el video más reciente del canal vía RSS para comprobar si está transmitiendo en vivo
-        async function obtenerUltimoVideoCanal() {
-            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+        // Comprueba en el HTML de la pestaña /streams del canal si YouTube marca un video como en vivo ahora mismo
+        async function obtenerLiveActivoDesdeStreams() {
+            const streamsUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/streams`;
+            const proxies = [
+                `https://api.allorigins.win/raw?url=${encodeURIComponent(streamsUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(streamsUrl)}`
+            ];
 
-            try {
-                const res1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
-                const data1 = await res1.json();
-                if (data1 && data1.status === 'ok' && Array.isArray(data1.items) && data1.items.length > 0) {
-                    const latest = data1.items[0];
-                    return {
-                        title: latest.title || '',
-                        link: latest.link || '',
-                        videoId: extraerVideoIdYouTube(latest.link)
-                    };
-                }
-            } catch (_) {}
+            for (const proxyUrl of proxies) {
+                try {
+                    const res = await fetch(proxyUrl);
+                    if (!res.ok) continue;
+                    const html = await res.text();
+                    if (!html) continue;
 
-            try {
-                const res2 = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
-                const data2 = await res2.json();
-                if (data2 && data2.contents) {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(data2.contents, "text/xml");
-                    const entry = xmlDoc.querySelector("entry");
-                    if (entry) {
-                        const title = entry.querySelector("title") ? entry.querySelector("title").textContent : "";
-                        const link = entry.querySelector("link") ? entry.querySelector("link").getAttribute("href") : "";
-                        const ytVideoIdEl = entry.getElementsByTagName("yt:videoId")[0] || entry.querySelector("videoId");
-                        const videoId = (ytVideoIdEl && ytVideoIdEl.textContent) || extraerVideoIdYouTube(link);
-                        return { title, link, videoId };
+                    // Busca marcadores explícitos de transmisión en vivo o próxima emisión en YouTube
+                    const liveBadgeIndex = html.search(/"style":"LIVE"|"text":\{"runs":\[\{"text":"EN VIVO"\}\]|"text":"En vivo"|"isLive":true/i);
+                    if (liveBadgeIndex === -1) {
+                        return null;
                     }
-                }
-            } catch (_) {}
+
+                    // Busca el videoId más cercano alrededor del indicador de LIVE
+                    const windowStart = Math.max(0, liveBadgeIndex - 1500);
+                    const windowEnd = Math.min(html.length, liveBadgeIndex + 1500);
+                    const snippet = html.slice(windowStart, windowEnd);
+
+                    const idMatch = snippet.match(/"videoId":"([a-zA-Z0-9_-]{11})"/) || html.slice(0, liveBadgeIndex).match(/"videoId":"([a-zA-Z0-9_-]{11})"[^}]*$/);
+                    if (idMatch && idMatch[1]) {
+                        return {
+                            videoId: idMatch[1],
+                            embedUrl: `https://www.youtube.com/embed/${idMatch[1]}?autoplay=0&rel=0`
+                        };
+                    }
+                } catch (_) {}
+            }
 
             return null;
         }
 
-        // Verifica si un video está realmente en vivo consultando su oEmbed de YouTube
-        // YouTube oEmbed devuelve HTTP 200 únicamente para videos/transmisiones públicas disponibles
+        // Verifica si un videoId sigue disponible públicamente en YouTube oEmbed
+        async function confirmarVideoDisponible(videoId) {
+            if (!videoId) return false;
+            const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+            try {
+                const res = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(watchUrl)}&format=json`);
+                if (!res.ok) return false;
+                const data = await res.json();
+                return Boolean(data && data.title);
+            } catch (_) {
+                return false;
+            }
+        }
+
+        // Verifica estrictamente si hay un live activo y válido ahora mismo
         async function verificarTransmisionActivaYouTube() {
-            const latestVideo = await obtenerUltimoVideoCanal();
-            if (!latestVideo || !latestVideo.videoId) {
+            const activeStream = await obtenerLiveActivoDesdeStreams();
+            if (!activeStream || !activeStream.videoId) {
                 return null;
             }
 
-            const watchUrl = `https://www.youtube.com/watch?v=${latestVideo.videoId}`;
-            try {
-                const oembedRes = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(watchUrl)}&format=json`);
-                if (oembedRes.ok) {
-                    const oembedData = await oembedRes.json();
-                    if (oembedData && oembedData.title) {
-                        return `https://www.youtube.com/embed/${latestVideo.videoId}?autoplay=0&rel=0`;
-                    }
-                }
-            } catch (_) {}
+            const disponible = await confirmarVideoDisponible(activeStream.videoId);
+            if (!disponible) {
+                return null;
+            }
 
-            return null;
+            return activeStream.embedUrl;
         }
 
-        // Muestra la sección solo cuando estamos en horario, no es file:// y el live está activo
+        // Muestra la sección solo cuando estamos en horario, no es file:// y hay un live activo real
         async function showLiveSection() {
             if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
                 hideLiveSectionCompletely();
