@@ -1,4 +1,4 @@
-<!-- autor Obed rodriguez the one last update 11/22/2026/-->
+<!-- autor Obed rodriguez the one last update 11/24/2026/-->
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -105,16 +105,16 @@
                     <a href="#creencias" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Creencias</a>
                     <a href="#horarios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Horarios</a>
                     <a href="#ministerios" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Ministerios</a>
-                    <a id="navLiveLink" href="#transmision" class="hidden hover:text-red-600 transition py-2 border-b-2 border-transparent hover:border-red-500 items-center gap-1.5 font-semibold text-red-600">
-                        <span class="w-2 h-2 bg-red-600 rounded-full animate-ping"></span>
-                        <span>En Vivo</span>
-                    </a>
                     <a href="#sermones" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Prédicas</a>
                     <a href="#visitanos" class="hover:text-brand-blue transition py-2 border-b-2 border-transparent hover:border-brand-green">Visítanos</a>
                 </div>
 
                 <!-- Action Buttons (Botones de acción a la derecha) -->
-                <div class="hidden sm:flex items-center gap-2.5">
+                <div class="hidden sm:flex items-center gap-2">
+                    <a id="navLiveLink" href="#transmision" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2.5 rounded-lg font-bold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
+                        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
+                        <span>En Vivo</span>
+                    </a>
                     <a href="eventos.html" class="bg-brand-blue hover:bg-brand-blueDark text-white px-3 py-2.5 rounded-lg font-semibold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
                          <i class="fa-regular fa-calendar-days text-brand-green text-xs"></i> Eventos
                     </a>
@@ -127,9 +127,15 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
-                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
-                </button>
+                <div class="flex items-center gap-2 lg:hidden">
+                    <a href="#transmision" class="sm:hidden bg-red-600 hover:bg-red-700 text-white px-2.5 py-1.5 rounded-lg font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+                        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
+                        <span>En Vivo</span>
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -140,7 +146,7 @@
             <a href="#creencias" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Creencias</a>
             <a href="#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Horarios y Servicios</a>
             <a href="#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
-            <a id="mobileLiveLink" href="#transmision" onclick="toggleMobileMenu()" class="hidden py-2 text-red-600 font-bold border-b border-slate-100 items-center gap-2">
+            <a id="mobileLiveLink" href="#transmision" onclick="toggleMobileMenu()" class="flex py-2 text-red-600 font-bold border-b border-slate-100 items-center gap-2">
                 <span class="w-2 h-2 bg-red-600 rounded-full animate-ping"></span>
                 <span>Transmisión en Vivo</span>
             </a>
@@ -150,6 +156,9 @@
             <a href="#contactanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contáctanos</a>
             
             <div class="pt-2 flex flex-col gap-2">
+                <a href="#transmision" onclick="toggleMobileMenu()" class="w-full text-center bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-lg font-bold text-sm transition flex items-center justify-center gap-2">
+                    <span class="w-2 h-2 bg-white rounded-full animate-ping"></span> En Vivo
+                </a>
                 <a href="eventos.html" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue hover:bg-brand-blueDark text-white py-2.5 rounded-lg font-semibold text-sm transition">Eventos</a>
                 <a href="#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green hover:bg-brand-greenHover text-white py-2.5 rounded-lg font-semibold text-sm transition">Planifica tu Visita</a>
                 <a href="#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue hover:bg-brand-blueDark text-white py-2.5 rounded-lg font-semibold text-sm transition">Donar</a>
@@ -529,7 +538,7 @@
         </div>
     </section>
 
-    <!-- Live Stream Section (Oculta por defecto; solo se muestra cuando se verifica que estamos en vivo sin errores) -->
+    <!-- Live Stream Section -->
     <section id="transmision" class="hidden py-16 bg-gradient-to-b from-brand-blueDark to-brand-navyDark text-white border-b border-white/10">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-2xl mx-auto mb-8">
@@ -884,29 +893,28 @@
             }
         }
 
-        // Verifica si estamos dentro del horario de culto en Aberdeen, MD (America/New_York)
-        // Domingos: 10:30 AM (630 min) - 1:30 PM (810 min) | Miércoles: 6:55 PM - 8:45 PM
+        // Verifica si estamos dentro del horario de culto o prueba en Aberdeen, MD (America/New_York)
+        // Domingos: 10:30 AM - 1:30 PM | Martes (Prueba): 6:55 PM - 8:45 PM | Miércoles: 6:55 PM - 8:45 PM
         function isChurchServiceTime() {
             try {
                 const nowNY = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
-                const day = nowNY.getDay(); // 0 = Domingo, 3 = Miércoles
+                const day = nowNY.getDay(); // 0 = Domingo, 2 = Martes, 3 = Miércoles
                 const mins = nowNY.getHours() * 60 + nowNY.getMinutes();
 
                 const isSundayService = (day === 0 && mins >= (10 * 60 + 30) && mins <= (13 * 60 + 30));
+                const isTuesdayTest = (day === 2 && mins >= (18 * 60 + 55) && mins <= (20 * 60 + 45));
                 const isWednesdayService = (day === 3 && mins >= (18 * 60 + 55) && mins <= (20 * 60 + 45));
 
-                return isSundayService || isWednesdayService;
+                return isSundayService || isTuesdayTest || isWednesdayService;
             } catch (e) {
                 return false;
             }
         }
 
-        // Oculta por completo la sección y todos los botones/enlaces de "En Vivo"
+        // Oculta la sección del reproductor (mantiene visible el botón superior "En Vivo")
         function hideLiveSectionCompletely() {
             const section = document.getElementById('transmision');
             const iframe = document.getElementById('streamIframe');
-            const navLiveLink = document.getElementById('navLiveLink');
-            const mobileLiveLink = document.getElementById('mobileLiveLink');
             const heroLiveBtn = document.getElementById('heroLiveBtn');
 
             if (section) {
@@ -918,31 +926,21 @@
                 iframe.onerror = null;
                 iframe.src = '';
             }
-            if (navLiveLink) {
-                navLiveLink.classList.add('hidden');
-                navLiveLink.classList.remove('flex');
-            }
-            if (mobileLiveLink) {
-                mobileLiveLink.classList.add('hidden');
-                mobileLiveLink.classList.remove('flex');
-            }
             if (heroLiveBtn) {
                 heroLiveBtn.classList.add('hidden');
                 heroLiveBtn.classList.remove('flex');
             }
         }
 
-        // Muestra la sección solo cuando estamos en horario, no es file:// y el iframe carga sin errores
+        // Muestra la sección en los horarios configurados (Domingos, Martes 7:00 PM y Miércoles)
         function showLiveSection() {
-            if (window.location.protocol === 'file:' || !isChurchServiceTime()) {
+            if (!isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
             }
 
             const section = document.getElementById('transmision');
             const iframe = document.getElementById('streamIframe');
-            const navLiveLink = document.getElementById('navLiveLink');
-            const mobileLiveLink = document.getElementById('mobileLiveLink');
             const heroLiveBtn = document.getElementById('heroLiveBtn');
 
             if (!section || !iframe) return;
@@ -964,14 +962,6 @@
             section.classList.remove('hidden');
             section.classList.add('block');
 
-            if (navLiveLink) {
-                navLiveLink.classList.remove('hidden');
-                navLiveLink.classList.add('flex');
-            }
-            if (mobileLiveLink) {
-                mobileLiveLink.classList.remove('hidden');
-                mobileLiveLink.classList.add('flex');
-            }
             if (heroLiveBtn) {
                 heroLiveBtn.classList.remove('hidden');
                 heroLiveBtn.classList.add('flex');
@@ -1018,7 +1008,7 @@
                             items = entries.map(entry => {
                                 const title = entry.querySelector("title") ? entry.querySelector("title").textContent : "";
                                 const link = entry.querySelector("link") ? entry.querySelector("link").getAttribute("href") : "";
-                                const videoId = entry.querySelector("yt\:videoId, videoId") ? entry.querySelector("yt\:videoId, videoId").textContent : (link.includes('v=') ? link.split('v=')[1] : '');
+                                const videoId = entry.querySelector("yt\\:videoId, videoId") ? entry.querySelector("yt\\:videoId, videoId").textContent : (link.includes('v=') ? link.split('v=')[1] : '');
                                 const published = entry.querySelector("published") ? entry.querySelector("published").textContent : "";
                                 return { title, link, videoId, pubDate: published };
                             });
