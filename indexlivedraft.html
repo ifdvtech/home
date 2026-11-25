@@ -928,19 +928,11 @@
 
             if (!section || !iframe) return;
 
-            let streamError = false;
-            const handleError = () => {
-                streamError = true;
+            iframe.onerror = () => {
                 hideLiveSectionCompletely();
             };
 
-            iframe.onerror = handleError;
             iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
-
-            if (streamError) {
-                hideLiveSectionCompletely();
-                return;
-            }
 
             section.classList.remove('hidden');
             section.classList.add('block');
