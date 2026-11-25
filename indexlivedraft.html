@@ -920,7 +920,7 @@
         //https://www.youtube.com/embed/live_stream?channel=UChivYV3dPsKOCjNVPr74-NQ&autoplay=0&rel=0
         //https://www.youtube.com/channel/UChivYV3dPsKOCjNVPr74-NQ/live
         //https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams
-        function showLiveSection() {
+        async function showLiveSection() {
             if (!isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
@@ -932,26 +932,40 @@
 
             if (!section || !iframe) return;
 
-            let streamError = false;
-            const handleError = () => {
-                streamError = true;
+            try {
+                // Workaround: Consultamos la página /live a través de un proxy para leer el HTML real
+                const targetUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/live`;
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+                
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                const html = data.contents || '';
+
+                // Buscamos si YouTube confirma que está en vivo y extraemos el ID exacto del video
+                const isLive = html.includes('"isLive":true');
+                const videoIdMatch = html.match(/<link rel="canonical" href="https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})">/);
+
+                if (isLive && videoIdMatch && videoIdMatch[1]) {
+                    const liveVideoId = videoIdMatch[1];
+                    
+                    // Cargamos el ID directo del video en lugar de live_stream (evita Error 153)
+                    iframe.src = `https://www.youtube.com/embed/${liveVideoId}?autoplay=0&rel=0`;
+
+                    section.classList.remove('hidden');
+                    section.classList.add('block');
+
+                    if (heroLiveBtn) {
+                        heroLiveBtn.classList.remove('hidden');
+                        heroLiveBtn.classList.add('flex');
+                    }
+                } else {
+                    // No hay directo activo en este momento -> ocultamos todo para no mostrar errores
+                    hideLiveSectionCompletely();
+                }
+            } catch (error) {
+                console.error('Error verificando transmisión en vivo:', error);
+                // Si el proxy falla, ocultamos la sección por seguridad y dejamos los botones externos
                 hideLiveSectionCompletely();
-            };
-
-            iframe.onerror = handleError;
-            iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
-
-            if (streamError) {
-                hideLiveSectionCompletely();
-                return;
-            }
-
-            section.classList.remove('hidden');
-            section.classList.add('block');
-
-            if (heroLiveBtn) {
-                heroLiveBtn.classList.remove('hidden');
-                heroLiveBtn.classList.add('flex');
             }
         }
 
