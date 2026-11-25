@@ -110,11 +110,7 @@
                 </div>
 
                 <!-- Action Buttons (Botones de acción a la derecha) -->
-                <div class="hidden sm:flex items-center gap-2">
-                    <a id="navLiveLink" href="#transmision" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2.5 rounded-lg font-bold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
-                        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
-                        <span>En Vivo</span>
-                    </a>
+                <div class="hidden sm:flex items-center gap-2.5">
                     <a href="eventos.html" class="bg-brand-blue hover:bg-brand-blueDark text-white px-3 py-2.5 rounded-lg font-semibold text-xs xl:text-sm transition shadow-sm hover:shadow flex items-center gap-1.5 whitespace-nowrap">
                          <i class="fa-regular fa-calendar-days text-brand-green text-xs"></i> Eventos
                     </a>
@@ -127,15 +123,9 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="flex items-center gap-2 lg:hidden">
-                    <a href="#transmision" class="sm:hidden bg-red-600 hover:bg-red-700 text-white px-2.5 py-1.5 rounded-lg font-bold text-xs transition shadow-sm flex items-center gap-1.5">
-                        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
-                        <span>En Vivo</span>
-                    </a>
-                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
-                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
 
@@ -146,19 +136,12 @@
             <a href="#creencias" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Creencias</a>
             <a href="#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Horarios y Servicios</a>
             <a href="#ministerios" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ministerios</a>
-            <a id="mobileLiveLink" href="#transmision" onclick="toggleMobileMenu()" class="flex py-2 text-red-600 font-bold border-b border-slate-100 items-center gap-2">
-                <span class="w-2 h-2 bg-red-600 rounded-full animate-ping"></span>
-                <span>Transmisión en Vivo</span>
-            </a>
             <a href="#sermones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Prédicas Recientes</a>
             <a href="#donaciones" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ofrendas y Diezmos</a>
             <a href="#visitanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue border-b border-slate-100">Ubicación y Visita</a>
             <a href="#contactanos" onclick="toggleMobileMenu()" class="block py-2 text-slate-600 hover:text-brand-blue">Contáctanos</a>
             
             <div class="pt-2 flex flex-col gap-2">
-                <a href="#transmision" onclick="toggleMobileMenu()" class="w-full text-center bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-lg font-bold text-sm transition flex items-center justify-center gap-2">
-                    <span class="w-2 h-2 bg-white rounded-full animate-ping"></span> En Vivo
-                </a>
                 <a href="eventos.html" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue hover:bg-brand-blueDark text-white py-2.5 rounded-lg font-semibold text-sm transition">Eventos</a>
                 <a href="#visitanos" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-green hover:bg-brand-greenHover text-white py-2.5 rounded-lg font-semibold text-sm transition">Planifica tu Visita</a>
                 <a href="#donaciones" onclick="toggleMobileMenu()" class="w-full text-center bg-brand-blue hover:bg-brand-blueDark text-white py-2.5 rounded-lg font-semibold text-sm transition">Donar</a>
@@ -911,7 +894,7 @@
             }
         }
 
-        // Oculta la sección del reproductor (mantiene visible el botón superior "En Vivo")
+        // Oculta por completo la sección y el botón en vivo del hero
         function hideLiveSectionCompletely() {
             const section = document.getElementById('transmision');
             const iframe = document.getElementById('streamIframe');
@@ -932,7 +915,7 @@
             }
         }
 
-        // Muestra la sección en los horarios configurados (Domingos, Martes 7:00 PM y Miércoles)
+        // Muestra la sección y el botón del hero solo en los horarios configurados
         function showLiveSection() {
             if (!isChurchServiceTime()) {
                 hideLiveSectionCompletely();
