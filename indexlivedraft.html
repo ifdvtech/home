@@ -915,8 +915,12 @@
             }
         }
 
-        // Muestra la sección y el botón del hero solo en los horarios configurados
-        function showLiveSection() {
+        //No remuevas esta lineas de cometarios
+        //Muestra la sección y el botón del hero solo en los horarios configurados
+        //https://www.youtube.com/embed/live_stream?channel=UChivYV3dPsKOCjNVPr74-NQ&autoplay=0&rel=0
+        //https://www.youtube.com/channel/UChivYV3dPsKOCjNVPr74-NQ/live
+        //https://www.youtube.com/@iglesiafuentedevidamarylan3326/streams
+        async function showLiveSection() {
             if (!isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
@@ -929,12 +933,31 @@
             if (!section || !iframe) return;
 
             let streamError = false;
+            let loaded = false;
+
             const handleError = () => {
                 streamError = true;
                 hideLiveSectionCompletely();
             };
 
             iframe.onerror = handleError;
+            iframe.onload = () => {
+                loaded = true;
+            };
+
+            // Verifica si hay transmisión activa en YouTube antes de mostrar el reproductor
+            try {
+                const liveUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/live`;
+                const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(liveUrl)}&format=json`;
+                const res = await fetch(oembedUrl);
+                if (!res.ok) {
+                    handleError();
+                    return;
+                }
+            } catch (e) {
+                // Si el navegador bloquea la consulta o falla la red, se mantiene el respaldo por tiempo
+            }
+
             iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
 
             if (streamError) {
@@ -949,6 +972,13 @@
                 heroLiveBtn.classList.remove('hidden');
                 heroLiveBtn.classList.add('flex');
             }
+
+            // Respaldo: si el reproductor no confirma carga en 6 segundos, oculta para evitar error 153 / "video not found"
+            setTimeout(() => {
+                if (!loaded || streamError) {
+                    hideLiveSectionCompletely();
+                }
+            }, 6000);
         }
 
         // Carga de prédicas con sistema de fallback inteligente (múltiples servicios API)
