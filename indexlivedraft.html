@@ -915,8 +915,8 @@
             }
         }
 
-        // Muestra la sección y el botón del hero solo en los horarios configurados
-        function showLiveSection() {
+        // Muestra la sección y el botón del hero solo si estamos en horario y hay transmisión activa sin error
+        async function showLiveSection() {
             if (!isChurchServiceTime()) {
                 hideLiveSectionCompletely();
                 return;
@@ -929,12 +929,31 @@
             if (!section || !iframe) return;
 
             let streamError = false;
+            let frameLoaded = false;
+
             const handleError = () => {
                 streamError = true;
                 hideLiveSectionCompletely();
             };
 
             iframe.onerror = handleError;
+            iframe.onload = () => {
+                frameLoaded = true;
+            };
+
+            // 1. Verifica antes si YouTube reporta transmisión en vivo válida (oembed / página live)
+            try {
+                const liveCheckUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(`https://www.youtube.com/channel/${CHANNEL_ID}/live`)}&format=json`;
+                const res = await fetch(liveCheckUrl);
+                if (!res.ok) {
+                    // Si YouTube devuelve 404/400 (no hay live activo -> "Video not found"), oculta todo
+                    handleError();
+                    return;
+                }
+            } catch (e) {
+                // Si el navegador bloquea la consulta o falla la red, continúa con el respaldo por tiempo
+            }
+
             iframe.src = `https://www.youtube.com/embed/live_stream?channel=${CHANNEL_ID}&autoplay=0&rel=0`;
 
             if (streamError) {
@@ -949,6 +968,13 @@
                 heroLiveBtn.classList.remove('hidden');
                 heroLiveBtn.classList.add('flex');
             }
+
+            // 2. Respaldo adicional: si tras 6 segundos no cargó correctamente, oculta la sección
+            setTimeout(() => {
+                if (!frameLoaded || streamError) {
+                    hideLiveSectionCompletely();
+                }
+            }, 6000);
         }
 
         // Carga de prédicas con sistema de fallback inteligente (múltiples servicios API)
